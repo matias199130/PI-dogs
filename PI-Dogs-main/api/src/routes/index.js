@@ -3,7 +3,7 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 const dogsRoute = require('./dogs');
 const dogRoute = require('./dog');
-const tempramentsRoute = require('./Temperaments');
+const tempramentsRoute = require('./temperament');
 
 const router = Router();
 
@@ -11,6 +11,6 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 router.use('/dogs', dogsRoute);
 router.use('/dog', dogRoute)
-router.use('/temperaments', tempramentsRoute);
+router.use('/temperament', tempramentsRoute);
 
 module.exports = router;

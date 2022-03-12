@@ -11,15 +11,15 @@ const getApi = async () => {
   const apiUrl = await axios.get(
     `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
   );
-  const apiInfo = await apiUrl.data.map((e) => {
+  const apiInfo = await apiUrl.data.map((el) => {
     return {
-      id: e.id,
-      image: e.image.url,
-      name: e.name,
-      temperament: e.temperament,
-      weight: e.weight.imperial,
-      height: e.height.imperial,
-      life_span: e.life_span,
+      id: el.id,
+      image: el.image.url,
+      name: el.name,
+      temperament: el.temperament,
+      weight: el.weight.imperial,
+      height: el.height.imperial,
+      life_span: el.life_span,
     };
   });
   return apiInfo;
@@ -60,12 +60,12 @@ router.get("/", async (req, res) => {
   if (!name) {
     res.status(200).json(allBreeds);
   } else {
-    const filtrados = allBreeds.filter((e) => {
-      const names = e.name.toUpperCase();
+    const breedsFilter = allBreeds.filter((el) => {
+      const names = el.name.toUpperCase();
       if (names.includes(name.toUpperCase())) return names;
     });
-    filtrados.length
-      ? res.status(200).json(filtrados)
+    breedsFilter.length
+      ? res.status(200).json(breedsFilter)
       : res.status(400).send("La raza que intenta buscar no fue encontrada!");
   }
 });
@@ -79,9 +79,9 @@ router.get("/:id", async (req, res) => {
   const id = req.params.id;
   const breeds = await getBreeds();
   if (id) {
-    const filtrados = await breeds.filter((e) => e.id == id);
-    filtrados.length
-      ? res.status(200).json(filtrados)
+    const idFilter = await breeds.filter((el) => el.id == id);
+    idFilter.length
+      ? res.status(200).json(idFilter)
       : res
           .status(404)
           .send("El id de la raza que intenta buscar no se encuentra!");

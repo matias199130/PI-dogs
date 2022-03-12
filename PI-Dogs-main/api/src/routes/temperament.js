@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-const { Temperaments } = require("../db");
+const { Temperament } = require("../db");
 const { API_KEY } = process.env;
 const { default: axios } = require("axios");
 const router = Router();
@@ -19,19 +19,18 @@ router.get("/", async (req, res) => {
     .toString()
     .trim()
      .split(/\s*,\s*/);
-    //(buscar y escribir que hace split)
     //  busca 0 o más espacios seguidos de un punto y coma seguido por 0
     // o más espacios y, cuando los halla, elimina los espacios de la cadena.
     // listaNombres es el array devuelto como resultado de la llamada a split.
 
-  const filtro = tempBd.filter((el) => el);
-  const filtro2 = [...new Set(filtro)];
-  filtro2.forEach((el) =>
-    Temperaments.findOrCreate({
+  const filterBd = tempBd.filter((el) => el);
+  const allFilter = [...new Set(filterBd)];
+  allFilter.forEach((el) =>
+    Temperament.findOrCreate({
       where: { name: el },
     })
   );
-  const allTemperaments = await Temperaments.findAll();
+  const allTemperaments = await Temperament.findAll();
   res.json(allTemperaments);
 });
 
