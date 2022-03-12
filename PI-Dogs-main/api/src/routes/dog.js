@@ -23,7 +23,9 @@ router.post("/", async (req, res) => {
   } else {
     res
       .status(500)
-      .send("Lo que intentas ingresar no se pudo procesar, por favor vuelva a intentarlo");
+      .send(
+        "Lo que intentas ingresar no se pudo procesar, por favor vuelva a intentarlo"
+      );
   }
 });
 
