@@ -1,5 +1,6 @@
 const { Router } = require("express");
-const { Dogs } = require("../db");
+const { Dogs, Temperament } = require("../db");
+
 
 const router = Router();
 
@@ -16,10 +17,19 @@ router.post("/", async (req, res) => {
     weight: weight,
     life_span: life_span,
     image: image,
-    temperament: temperament,
+    // temperament: temperament,
   });
-  if (createDog) {
-    res.status(200).json(createDog);
+
+  const searchTemp = await Temperament.findAll({
+    where: {
+      name: temperament
+    }
+  })
+// console.log("soy createDog:",createDog,"soy searchTemp:", searchTemp)
+  
+createDog.addTemperament(searchTemp)
+  if (searchTemp) {
+    res.status(200).send("perro fue creado con exito");
   } else {
     res
       .status(500)

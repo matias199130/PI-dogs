@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Router } = require("express");
 const axios = require("axios");
 const { API_KEY } = process.env;
-const { Dogs, Temperaments } = require("../db");
+const { Dogs, Temperament } = require("../db");
 
 const router = Router();
 
@@ -22,6 +22,7 @@ const getApi = async () => {
       life_span: el.life_span,
     };
   });
+  // console.log(apiInfo)
   return apiInfo;
 };
 
@@ -29,7 +30,7 @@ const getApi = async () => {
 const getBd = async () => {
   return await Dogs.findAll({
     include: {
-      model: Temperaments,
+      model: Temperament,
       attributes: ["name"],
       through: {
         attributes: [],
@@ -53,10 +54,12 @@ const getBreeds = async () => {
 // Si no existe ninguna raza de perro mostrar un mensaje adecuado
 // lo que se hace en esta ruta es que si se pide un perro especifico la ruta lo trae,
 // y si no se pide un perro la ruta se encarga de traer todos las razas con lo pedido en la ruta principal
+
+
 router.get("/", async (req, res) => {
   const { name } = req.query;
   const allBreeds = await getBreeds();
-
+// console.log(allBreeds, name, "perritos")
   if (!name) {
     res.status(200).json(allBreeds);
   } else {
