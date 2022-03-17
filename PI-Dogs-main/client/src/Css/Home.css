@@ -1,0 +1,82 @@
+
+.fondoNav{
+  background-image: url(../img/fondeo_de_home.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  justify-content: center;
+  /* width: 100%; */
+}
+.base3 {
+  font-size: 30px;
+  margin: 5px;
+}
+
+.paginado {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.paginado2 {
+  margin: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.titleHome {
+  color: #00a738;
+  font-family: verdana, arial, helvetica;
+  box-shadow: inset;
+  border-color: rgb(1, 71, 28);
+  background: rgb(0, 0, 0);
+  font-size: 150px;
+  z-index: -1;
+}
+
+#botonCreate {
+  margin: 10px 70px;
+  padding: 10px;
+  height: 5%;
+  width: 15%;
+  font-size: 25px;
+  color: #000000;
+  border-radius: 15px;
+  background-color: #00a738;
+  font-family: "Lucida Console", "Courier New", monospace;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px #00a738;
+  font-weight: bold;
+}
+
+#botonCreate:hover {
+  color: white;
+  background-color: #047a18;
+}
+
+#home {
+  width: 45px;
+  height: 45px;
+}
+
+#home:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 25%;
+}
+.principal {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header {
+  background-color: rgba(255, 255, 255, 0.199);
+  padding-bottom: 1%;
+}
+.ubboton {
+  display: flex;
+  justify-content: end;
+  margin-right: 8%;
+}

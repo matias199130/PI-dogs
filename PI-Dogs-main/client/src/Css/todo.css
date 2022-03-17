@@ -1,0 +1,9 @@
+.boton2{
+    color:rgb(205, 205, 218);
+    border-radius: 15;
+    background-color: rgba(0, 0, 0, 0.705);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    border-radius: 15%;
+    font-size: 26px;
+} 

@@ -1,0 +1,46 @@
+.paginado {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 100%;
+  border-top: 16px solid #31f700;
+  width: 100px;
+  height: 100px;
+  margin-inline-end: 10px;
+  margin-top: 100px;
+  justify-items: center;
+  margin: auto;
+  padding: 5vh;
+ -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.title4 { 
+  color: #e00404;
+  font-family: "Lucida Console", "Courier New", monospace;
+  margin-left: 650px;
+  margin-inline-end: 10px;
+  margin-top: 300px;
+  justify-content: end;
+} 

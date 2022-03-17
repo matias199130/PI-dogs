@@ -1,0 +1,25 @@
+.botonPaginado{
+    color:rgb(13, 13, 14);
+    background-color: rgba(2, 100, 0, 0.986);
+    font-family: "Lucida Console", "Courier New", monospace;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1.5em;
+    width: 30px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+}
+.botonPaginado:hover{
+    background-color: rgba(39, 238, 3, 0.972);
+}
+.paginado9{
+    display: flex;
+    direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    }

@@ -1,0 +1,74 @@
+.card {
+  width: 350px;
+  height: 400px;
+  border-radius: 10%;
+  border: 1px solid #03cc67;
+  margin: 20px;
+  background-color: #03cc67;
+  box-shadow: 3px 0px 10px 4px #050505;
+  text-align: center;
+}
+.card:hover {
+  background-color: #73ffa9;
+  /* text-transform: capitalize; */
+  /* width: 360px;
+  height: 500px; */
+}
+
+.title2 {
+  color: rgb(247, 247, 247);
+  /* font-family: Georgia, "Times New Roman", Times, serif; */
+  /* background: white; */
+  /* background-image: url(../img/fondeo_de_home.jpg); */
+  bottom: 10%;
+  top: 20%;
+  border-radius: 10%;
+}
+.title3 {
+  color: #050505;
+  /* font-family: Georgia, "Times New Roman", Times, serif; */
+  bottom: 10%;
+  top: 20%;
+  border-radius: 10%;
+  justify-items: center;
+  padding: 5px;
+}
+.title4 {
+  color: #0a0a0a;
+  font-family: "Lucida Console", "Courier New", monospace;
+  margin-left: 200px;
+  margin-top: 300px;
+  justify-content: end;
+}
+.base1 {
+  color: rgb(15, 16, 17);
+  justify-content: center;
+  border-radius: 10%;
+  padding: 5px;
+  text-decoration: inherit;
+}
+.base2 {
+  color: #0c0c0c;
+  justify-content: center;
+  border-radius: 10%;
+  padding: 5px;
+  text-decoration: inherit;
+}
+.imageCard {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  justify-content: center;
+  border-style: outset;
+  /* box-shadow: 0px 0px 10px 4px #050505; */
+  border-color: transparent;
+  border-width: 7px;
+}
+.base11 {
+  color: #060707;
+  justify-content: center;
+  border-radius: 10%;
+  padding: 5px;
+  text-decoration: inherit;
+  height: 80px;
+}
