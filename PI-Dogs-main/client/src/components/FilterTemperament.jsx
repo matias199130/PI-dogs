@@ -23,10 +23,10 @@ export default function FilterTempe() {
         >
           <option value="All">all Temperaments</option>
           {allTemperaments &&
-            allTemperaments.map((el) => (
-              <option key={el.id} value={el.name}>
+            allTemperaments.map((el, i) => (
+                      <option key={i} value={el}>
                 {" "}
-                {el.name}{" "}
+                {el}{" "}
               </option>
             ))}
         </select>

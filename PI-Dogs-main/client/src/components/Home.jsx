@@ -33,16 +33,16 @@ export default function Home() {
           {currentDogs.length === 0 && currentDogs ? (
             <Landing />
           ) : (
-            currentDogs.map((el) => {
+            currentDogs.map((el, i) => {
               return (
                 <div>
                   <Link
-                    key={el.id}
+                    key={i}
                     to={"/dogs/" + el.id}
                     style={{ textDecoration: "inherit" }}
                   >
                     <Card
-                      key={el.id}
+                      key={i.id}
                       name={el.name}
                       image={el.image}
                       temperament={el.temperament}

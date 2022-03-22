@@ -80,7 +80,7 @@ export default function DogCreate() {
   }
 
   function handleSelectTemperament(el) {
-  console.log("soy input", el.target.value)
+  // console.log("soy input", el.target.value)
     if (!input.temperament.includes(el.target.value)) {
 
       setInput({
@@ -210,8 +210,8 @@ export default function DogCreate() {
                   <option>Temperaments</option>
                   {/* {console.log("soy alltemp", allTemperaments)} */}
                   {allTemperaments &&
-                    allTemperaments.map((el) => (
-                      <option key={el} value={el}>
+                    allTemperaments.map((el, index) => (
+                      <option key={index} value={el}>
                         {el}
                       </option>
                     ))}
@@ -219,10 +219,10 @@ export default function DogCreate() {
                 </select>
                 <br />
 
-                {input.temperament.map((nombre) => {
+                {input.temperament.map((nombre, i) => {
                   return (
                     <div className="concatFiltro">
-                      <span key={nombre}>
+                      <span key={i}>
                         <button
                           className="boton3"
                           onClick={(nombre) => handleDelete(nombre)}

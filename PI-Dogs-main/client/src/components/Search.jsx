@@ -36,7 +36,6 @@ export default function Search() {
           className="buscador"
         />
         <button
-          autoComplete
           className="figurabuscador"
           onClick={(e) => handleSubmit(e)}
           type="submit"
