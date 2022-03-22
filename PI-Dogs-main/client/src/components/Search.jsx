@@ -8,32 +8,43 @@ export default function Search() {
   const [name, setName] = useState("");
 
   useEffect(() => {
-      dispatch(getDogs());
+    dispatch(getDogs());
   }, [dispatch]);
 
-   function handleInputChange(el) {
-     el.preventDefault();
-      setName(el.target.value);
-     
-      if(name.length>1){
-    dispatch(getName(name));
-  } else{
-    dispatch(getDogs());
+  function handleInputChange(el) {
+    el.preventDefault();
+    setName(el.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (name.length > 1 ) {
+      dispatch(getName(name));
+    } else {
+      alert("perro no encontrado")
+      dispatch(getDogs())
   }
 }
 
-  
   return (
     <div>
-         <div className="search">
-      <input
-        type="text"
-        placeholder='Dog Breed...'
-         onChange={(el) => handleInputChange(el)}
-        className='buscador'
-      />
-      <div className="figurabuscador">🔎</div>
-     </div>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Dog Breed..."
+          onChange={(el) => handleInputChange(el)}
+          className="buscador"
+        />
+        <button
+          autoComplete
+          className="figurabuscador"
+          onClick={(e) => handleSubmit(e)}
+          type="submit"
+        >
+          Search
+        </button>
+        {/* <div className="figurabuscador">🔎</div> */}
+      </div>
     </div>
   );
 }

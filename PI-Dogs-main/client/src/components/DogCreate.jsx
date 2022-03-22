@@ -29,30 +29,78 @@ export default function DogCreate() {
     dispatch(resState(resState));
   }, [dispatch]);
 
+  // function handleSubmit(el) {
+  //   el.preventDefault();
+  //   if (
+  //     !errors.name &&
+  //     !errors.image &&
+  //     !errors.weight_min &&
+  //     !errors.height_min &&
+  //     !errors.weight_max &&
+  //     !errors.height_max
+  //   ) {
+  //     alert("Your dog has been created successfully");
+  //   } else {
+  //     let crear = {
+  //       name: input.name,
+  //       height: `${input.minHeight} - ${input.maxHeight}`,
+  //       weight: `${input.minWeight} - ${input.maxWeight}`,
+  //       life_span: `${input.minlife_span} - ${input.maxlife_span} years`,
+  //       image: input.image,
+  //       temperament: input.temperament.join(", "),
+  //     };
+  //     dispatch(postDogs(crear));
+  //     setInput({
+  //       name: "",
+  //       minHeight: "",
+  //       maxHeight: "",
+  //       minWeight: "",
+  //       maxWeight: "",
+  //       minlife_span: "",
+  //       maxlife_span: "",
+  //       image: "",
+  //       temperament: [],
+  //       // createdInBd: true,
+  //     });
+  //     alert("Dog Create!!");
+  //     // console.log(submit())
+  //   }
+  // }
   function handleSubmit(el) {
+    
     el.preventDefault();
-    let crear = {
-      name: input.name,
-      height: `${input.minHeight} - ${input.maxHeight}`,
-      weight: `${input.minWeight} - ${input.maxWeight}`,
-      life_span: `${input.minlife_span} - ${input.maxlife_span} years`,
-      image: input.image,
-      temperament: input.temperament.join(", "),
-    };
-    dispatch(postDogs(crear));
-    setInput({
-      name: "",
-      minHeight: "",
-      maxHeight: "",
-      minWeight: "",
-      maxWeight: "",
-      minlife_span: "",
-      maxlife_span: "",
-      image: "",
-      temperament: [],
-      createdInBd: true,
-    });
-    alert("Dog Create!!");//ALERTA CAMBIAR
+    if (Object.values(errors).length > 0||input.name===''){
+      return alert("Something went wrong. Please try again.");
+    }else if (
+      !errors.name  &&
+      !errors.image &&
+      !errors.weight_min &&
+      !errors.height_min &&
+      !errors.weight_max &&
+      !errors.height_max
+    ) {
+      let crear = {
+        name: input.name,
+        height: `${input.minHeight} - ${input.maxHeight}`,
+        weight: `${input.minWeight} - ${input.maxWeight}`,
+        life_span: `${input.minlife_span} - ${input.maxlife_span} years`,
+        image: input.image,
+        temperament: input.temperament.join(", "),
+      };
+      dispatch(postDogs(crear));
+      setInput({
+        name: "",
+        minHeight: "",
+        maxHeight: "",
+        minWeight: "",
+        maxWeight: "",
+        minlife_span: "",
+        maxlife_span: "",
+        image: "",
+        temperament: [],
+      });
+      alert("Your dog has been created successfully");
+    }
   }
   function handelChange(el) {
     setInput({
@@ -85,147 +133,161 @@ export default function DogCreate() {
     });
   }
 
+  // function submit(el) {
+  //   el.preventDefault();
+  //   if (Object.values(errors).length > 0) {
+  //     alert("Please fill in all the required fields");
+  //   } else {
+  //     dispatch(DogCreate(input));
+  //     alert("Recipe created successfully!");
+  //   }
+  // }
+
   return (
     <div className="imgFondo">
-    <div className="fromPerfil">
-      <div>
+      <div className="fromPerfil">
         <div>
-          <Link to="/home">
-            <button className="boton5">Home</button>
-          </Link>
-          <h1 className="titleForm">Form Dogs</h1>
+          <div>
+            <Link to="/home">
+              <button className="boton5">Home</button>
+            </Link>
+            <h1 className="titleForm">Form Dogs</h1>
+          </div>
+          <div className="">
+            <form className="fromPerfil" onSubmit={resState}>
+              {/* {submit} */}
+              <div className="">
+                <label className="title5">Name:</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={input.name}
+                  onChange={(el) => handelChange(el)}
+                />
+                <br />
+                <strong>{errors.name}</strong>
+
+                <label className="title5">Height min:</label>
+                <input
+                  type="number"
+                  name="minHeight"
+                  value={input.minHeight}
+                  onChange={(el) => handelChange(el)}
+                />
+                <br />
+                <strong>{errors.minHeight}</strong>
+
+                <label className="title5">Height max:</label>
+                <input
+                  type="number"
+                  name="maxHeight"
+                  value={input.maxHeight}
+                  onChange={(el) => handelChange(el)}
+                />
+                <br />
+                <strong>{errors.maxHeight}</strong>
+
+                <label className="title5">Weight min:</label>
+                <input
+                  type="number"
+                  name="minWeight"
+                  value={input.minWeight}
+                  onChange={(el) => handelChange(el)}
+                />
+                <br />
+                <strong>{errors.minWeight}</strong>
+
+                <label className="title5">Weight max:</label>
+                <input
+                  type="number"
+                  name="maxWeight"
+                  value={input.maxWeight}
+                  onChange={(el) => handelChange(el)}
+                ></input>
+                <br />
+                <strong>{errors.maxWeight}</strong>
+
+                <label className="title5">Life span min:</label>
+                <input
+                  type="number"
+                  name="minlife_span"
+                  value={input.minlife_span}
+                  onChange={(el) => handelChange(el)}
+                />
+                <br />
+                <strong>{errors.minlife_span}</strong>
+
+                <label className="title5">Life span max:</label>
+                <input
+                  type="number"
+                  name="maxlife_span"
+                  value={input.maxlife_span}
+                  onChange={(el) => handelChange(el)}
+                />
+                <br />
+                <strong>{errors.maxlife_span}</strong>
+
+                <label name="image" className="title5">
+                  Image:
+                </label>
+                <input
+                  name="image"
+                  value={input.image}
+                  placeholder="URL"
+                  onChange={(el) => handelChange(el)}
+                ></input>
+
+                <label
+                  className="title5"
+                  value="temperament"
+                  name="temperament"
+                >
+                  {" "}
+                  Temperament:{" "}
+                </label>
+                <select
+                  className="boton5"
+                  onChange={(el) => handleSelectTemperament(el)}
+                >
+                  <option>Temperaments</option>
+                  {allTemperaments &&
+                    allTemperaments.map((el) => (
+                      <option key={el.id} value={el.name}>
+                        {el.name}
+                      </option>
+                    ))}
+                </select>
+                <br />
+
+                {input.temperament.map((nombre) => {
+                  return (
+                    <div className="concatFiltro">
+                      <span key={nombre}>
+                        <button
+                          className="boton3"
+                          onClick={(nombre) => handleDelete(nombre)}
+                        >
+                          {nombre}
+                        </button>
+                      </span>
+                    </div>
+                  );
+                })}
+
+                <button
+                  className="boton5"
+                  type="submit"
+                  onClick={(el) => handleSubmit(el)}
+                >
+                  {" "}
+                  Create new Dog
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="">
-          <form className="fromPerfil" onSubmit={resState}>
-            <div className="">
-              <label className="title5">Name:</label>
-              <input
-                type="text"
-                name="name"
-                value={input.name}
-                onChange={(el) => handelChange(el)}
-              />
-              <br />
-              <strong>{errors.name}</strong>
-
-              <label className="title5">Height min:</label>
-              <input
-                type="number"
-                name="minHeight"
-                value={input.minHeight}
-                onChange={(el) => handelChange(el)}
-              />
-              <br />
-              <strong>{errors.minHeight}</strong>
-
-              <label className="title5">Height max:</label>
-              <input
-                type="number"
-                name="maxHeight"
-                value={input.maxHeight}
-                onChange={(el) => handelChange(el)}
-              />
-              <br />
-              <strong>{errors.maxHeight}</strong>
-
-              <label className="title5">Weight min:</label>
-              <input
-                type="number"
-                name="minWeight"
-                value={input.minWeight}
-                onChange={(el) => handelChange(el)}
-              />
-              <br />
-              <strong>{errors.minWeight}</strong>
-
-              <label className="title5">Weight max:</label>
-              <input
-                type="number"
-                name="maxWeight"
-                value={input.maxWeight}
-                onChange={(el) => handelChange(el)}
-              ></input>
-              <br />
-              <strong>{errors.maxWeight}</strong>
-
-              <label className="title5">Life span min:</label>
-              <input
-                type="number"
-                name="minlife_span"
-                value={input.minlife_span}
-                onChange={(el) => handelChange(el)}
-              />
-              <br />
-              <strong>{errors.minlife_span}</strong>
-
-              <label className="title5">Life span max:</label>
-              <input
-                type="number"
-                name="maxlife_span"
-                value={input.maxlife_span}
-                onChange={(el) => handelChange(el)}
-              />
-              <br />
-              <strong>{errors.maxlife_span}</strong>
-
-              <label name="image" className="title5">
-                Image:
-              </label>
-              <input
-                name="image"
-                value={input.image}
-                placeholder="URL"
-                onChange={(el) => handelChange(el)}
-              ></input>
-
-              <label className="title5" value="temperament" name="temperament">
-                {" "}
-                Temperament:{" "}
-              </label>
-              <select
-                className="boton5"
-                onChange={(el) => handleSelectTemperament(el)}
-              >
-                <option>Temperaments</option>
-                {allTemperaments &&
-                  allTemperaments.map((el) => (
-                    <option key={el.id} value={el.name}>
-                      {el.name}
-                    </option>
-                  ))}
-              </select>
-              <br />
-
-              {input.temperament.map((nombre) => {
-                return (
-                  <div className="concatFiltro">
-                    <span key={nombre}>
-                      <button
-                        className="boton3"
-                        onClick={(nombre) => handleDelete(nombre)}
-                      >
-                        {nombre}
-                      </button>
-                    </span>
-                  </div>
-                );
-              })}
-
-              <button
-                className="boton5"
-                type="submit"
-                onClick={(el) => handleSubmit(el)}
-              >
-                {" "}
-                Create new Dog
-              </button>
-            </div>
-          </form>
-        </div>
+        <div className="imgperfil"></div>
       </div>
-      <div className="imgperfil">
-      </div>
-    </div>
     </div>
   );
 }

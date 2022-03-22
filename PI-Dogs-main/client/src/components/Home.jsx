@@ -9,8 +9,8 @@ import NavBar from "./NavBar";
 import "../Css/Home.css";
 
 export default function Home() {
-  const dispatch = useDispatch(); //para despachar mis acciones
-  const allDogs = useSelector((el) => el.allDogs); // poneme en allDogs todo lo que tengo en el state
+  const dispatch = useDispatch();
+  const allDogs = useSelector((el) => el.allDogs);
   const dogs = useSelector((el) => el.dogs);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -67,16 +67,10 @@ export default function Home() {
   return (
     <div className="fondoNav">
       <div>
-          {/* <Link to="/dog">
-            <button id="botonCreate">Create Dogs</button>
-          </Link> */}
-          <NavBar />
-        </div>
-        <div className="principal">
-        </div>
-        <div>
-          {dogs.length > 0 ? mostrarCards(dogs) : mostrarCards(allDogs)}
-        </div>
+        <NavBar />
       </div>
+      <div className="principal"></div>
+      <div>{dogs.length > 0 ? mostrarCards(dogs) : mostrarCards(allDogs)}</div>
+    </div>
   );
 }

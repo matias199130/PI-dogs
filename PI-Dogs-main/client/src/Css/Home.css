@@ -5,7 +5,8 @@
   background-position: center center;
   background-size: cover;
   justify-content: center;
-  /* width: 100%; */
+  margin :auto;
+  width: 100%;
 }
 .base3 {
   font-size: 30px;
@@ -19,7 +20,7 @@
 }
 
 .paginado2 {
-  margin: 2%;
+  margin-top: 12%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -29,7 +30,7 @@
   color: #00a738;
   font-family: verdana, arial, helvetica;
   box-shadow: inset;
-  border-color: rgb(1, 71, 28);
+  border-color: rgb(26, 29, 27);
   background: rgb(0, 0, 0);
   font-size: 150px;
   z-index: -1;

@@ -28,9 +28,9 @@ export default function NavBar() {
     <div className="fondo1">
       <div>
         <Link to="/dog">
-            <button id="botonCreate">Create Dogs</button>
-          </Link>
-          </div>
+          <button id="botonCreate">Create Dogs</button>
+        </Link>
+      </div>
       <div className="filtros">
         <div>
           <FilterTemperament />
