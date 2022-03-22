@@ -31,11 +31,14 @@ module.exports = (sequelize) => {
 
     image: {
       type: DataTypes.STRING,
+      defaultValue:
+      "https://drive.google.com/file/d/1me3a-ECgQQle1SesLGZUgpR2e3J2su_b/preview",
+    allowNull: true,
     },
-    temperament:{
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+    // temperament:{
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // },
     createdInBd: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,

@@ -30,7 +30,8 @@ router.get("/", async (req, res) => {
       where: { name: el },
     })
   );
-  const allTemperaments = await Temperament.findAll();
+  let allTemperaments = await Temperament.findAll();
+  allTemperaments = allTemperaments.map((el) => el.name)
   res.json(allTemperaments);
 });
 

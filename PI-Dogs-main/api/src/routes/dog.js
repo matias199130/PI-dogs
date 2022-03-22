@@ -20,23 +20,16 @@ router.post("/", async (req, res) => {
     // temperament: temperament,
   });
 
+  for( const el of temperament) {
   const searchTemp = await Temperament.findAll({
     where: {
-      name: temperament
-    }
+      name: el
+       }
   })
-// console.log("soy createDog:",createDog,"soy searchTemp:", searchTemp)
-  
-createDog.addTemperament(searchTemp)
-  if (searchTemp) {
-    res.status(200).send("perro fue creado con exito");
-  } else {
-    res
-      .status(500)
-      .send(
-        "Lo que intentas ingresar no se pudo procesar, por favor vuelva a intentarlo"
-      );
-  }
+  createDog.addTemperament(searchTemp)
+}
+  // console.log("soy createDog:",createDog,"soy searchTemp:", searchTemp)
+  res.status(200).send("perro fue creado con exito");
 });
 
 module.exports = router;

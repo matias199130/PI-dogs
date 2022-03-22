@@ -16,10 +16,10 @@ const getApi = async () => {
       id: el.id,
       image: el.image.url,
       name: el.name,
-      temperament: el.temperament,
       weight: el.weight.imperial,
       height: el.height.imperial,
       life_span: el.life_span,
+      temperament: el.temperament,
     };
   });
   // console.log(apiInfo)
@@ -28,15 +28,61 @@ const getApi = async () => {
 
 // mapeo desde la bd
 const getBd = async () => {
-  return await Dogs.findAll({
+  //findAll a dogs guardarlo en una const y
+  //guardar los atributos que se necesitan en dogs y que incluyan
+  //el modelo temperamento renombrando "as" temperamento tambien
+  //hay que cambiarlo en el archivo de db hacer un throw para evitar errores
+
+  //   return await Dogs.findAll({
+  //     include: {
+  //       model: Temperament,
+  //       attributes: ["name"],
+  //       through: {
+  //         attributes: [],
+  //       },
+  //     },
+  //   });
+  const getDogsTemp = await Dogs.findAll({
+    attributes: [
+      "id",
+      "name",
+      "height",
+      "weight",
+      "life_span",
+      "image",
+      "createdInBd",
+    ],
     include: {
       model: Temperament,
+      as: "Temperaments",
       attributes: ["name"],
       through: {
         attributes: [],
       },
     },
   });
+
+  let mapBd = getDogsTemp.map((el) => el.dataValues);
+  // console.log("mapBd", mapBd);
+  mapBd = mapBd.map((el) => {
+    let arrTemp = el.Temperaments.map(el=> el.name)
+    // console.log(arrTemp)
+    return {
+      id: el.id,
+      name: el.name,
+      height: el.height,
+      weight: el.weight,
+      life_span: el.life_span,
+      image: el.image,
+      createdInBd: el.createdInBd,
+      temperament: arrTemp.join(", ")
+    }
+  });
+  // const newDogs = getDogsTemp.map((el) => el.toJSON());
+  // newDogs.forEach(
+  //   (el) => el.Temperaments === el.Temperaments.map((el) => el.name).join(", ")
+  // );
+  return mapBd;
 };
 
 //concatenacion de datos entre la api y base de datos.
@@ -55,11 +101,10 @@ const getBreeds = async () => {
 // lo que se hace en esta ruta es que si se pide un perro especifico la ruta lo trae,
 // y si no se pide un perro la ruta se encarga de traer todos las razas con lo pedido en la ruta principal
 
-
 router.get("/", async (req, res) => {
   const { name } = req.query;
   const allBreeds = await getBreeds();
-// console.log(allBreeds, name, "perritos")
+  // console.log(allBreeds, name, "perritos")
   if (!name) {
     res.status(200).json(allBreeds);
   } else {
@@ -90,6 +135,5 @@ router.get("/:id", async (req, res) => {
           .send("El id de la raza que intenta buscar no se encuentra!");
   }
 });
-
 
 module.exports = router;
