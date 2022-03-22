@@ -8,8 +8,8 @@ import { validation } from "./Errores";
 
 export default function DogCreate() {
   const dispatch = useDispatch();
-  const allTemperaments = useSelector((el) => el.temperament);
-
+  const allTemperaments = useSelector((state) => state.temperament);
+// console.log("soy AllTemperament", allTemperaments)
   const [input, setInput] = useState({
     name: "",
     minHeight: "",
@@ -18,7 +18,7 @@ export default function DogCreate() {
     maxWeight: "",
     minlife_span: "",
     maxlife_span: "",
-    image: "",
+    image: "" ,
     temperament: [],
     createdInBd: false,
   });
@@ -29,43 +29,6 @@ export default function DogCreate() {
     dispatch(resState(resState));
   }, [dispatch]);
 
-  // function handleSubmit(el) {
-  //   el.preventDefault();
-  //   if (
-  //     !errors.name &&
-  //     !errors.image &&
-  //     !errors.weight_min &&
-  //     !errors.height_min &&
-  //     !errors.weight_max &&
-  //     !errors.height_max
-  //   ) {
-  //     alert("Your dog has been created successfully");
-  //   } else {
-  //     let crear = {
-  //       name: input.name,
-  //       height: `${input.minHeight} - ${input.maxHeight}`,
-  //       weight: `${input.minWeight} - ${input.maxWeight}`,
-  //       life_span: `${input.minlife_span} - ${input.maxlife_span} years`,
-  //       image: input.image,
-  //       temperament: input.temperament.join(", "),
-  //     };
-  //     dispatch(postDogs(crear));
-  //     setInput({
-  //       name: "",
-  //       minHeight: "",
-  //       maxHeight: "",
-  //       minWeight: "",
-  //       maxWeight: "",
-  //       minlife_span: "",
-  //       maxlife_span: "",
-  //       image: "",
-  //       temperament: [],
-  //       // createdInBd: true,
-  //     });
-  //     alert("Dog Create!!");
-  //     // console.log(submit())
-  //   }
-  // }
   function handleSubmit(el) {
     
     el.preventDefault();
@@ -85,7 +48,7 @@ export default function DogCreate() {
         weight: `${input.minWeight} - ${input.maxWeight}`,
         life_span: `${input.minlife_span} - ${input.maxlife_span} years`,
         image: input.image,
-        temperament: input.temperament.join(", "),
+        temperament: input.temperament,
       };
       dispatch(postDogs(crear));
       setInput({
@@ -102,6 +65,7 @@ export default function DogCreate() {
       alert("Your dog has been created successfully");
     }
   }
+  // console.log("soy imputtemp", input.temperament)
   function handelChange(el) {
     setInput({
       ...input,
@@ -116,12 +80,16 @@ export default function DogCreate() {
   }
 
   function handleSelectTemperament(el) {
+  console.log("soy input", el.target.value)
     if (!input.temperament.includes(el.target.value)) {
+
       setInput({
         ...input,
         temperament: [...input.temperament, el.target.value],
       });
+      // console.log("rompe", input.temperament )
     }
+    // console.log(handleSelectTemperament())
   }
   function handleDelete(el) {
     el.preventDefault();
@@ -129,20 +97,10 @@ export default function DogCreate() {
       ...input,
       temperament: input.temperament.filter(
         (temp) => temp !== el.target.innerText
-      ),
-    });
+        ),
+      });
+      console.log("innerText", el.target.innerText)
   }
-
-  // function submit(el) {
-  //   el.preventDefault();
-  //   if (Object.values(errors).length > 0) {
-  //     alert("Please fill in all the required fields");
-  //   } else {
-  //     dispatch(DogCreate(input));
-  //     alert("Recipe created successfully!");
-  //   }
-  // }
-
   return (
     <div className="imgFondo">
       <div className="fromPerfil">
@@ -242,20 +200,22 @@ export default function DogCreate() {
                   value="temperament"
                   name="temperament"
                 >
-                  {" "}
-                  Temperament:{" "}
+                  {[" "]}
+                  Temperament:{[" "]}
                 </label>
                 <select
                   className="boton5"
                   onChange={(el) => handleSelectTemperament(el)}
                 >
                   <option>Temperaments</option>
+                  {/* {console.log("soy alltemp", allTemperaments)} */}
                   {allTemperaments &&
                     allTemperaments.map((el) => (
-                      <option key={el.id} value={el.name}>
-                        {el.name}
+                      <option key={el} value={el}>
+                        {el}
                       </option>
                     ))}
+                    {/* no tocar ! */}
                 </select>
                 <br />
 
