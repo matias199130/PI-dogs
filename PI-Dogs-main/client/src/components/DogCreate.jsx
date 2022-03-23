@@ -194,6 +194,8 @@ export default function DogCreate() {
                   placeholder="URL"
                   onChange={(el) => handelChange(el)}
                 ></input>
+                <br />
+                <strong>{errors.image}</strong>
 
                 <label
                   className="title5"

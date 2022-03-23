@@ -48,11 +48,11 @@ export default function Detail() {
             </div>
             <div className="base3">
               <h4>Height:</h4>
-              <p>{dogDetail[0].height}</p>
+              <p>{dogDetail[0].height} in.</p>
             </div>
             <div className="base3">
               <h4>Weight:</h4>
-              <p>{dogDetail[0].weight}</p>
+              <p>{dogDetail[0].weight} lbs.</p>
             </div>
             <div className="base3">
               <h4>Life Span</h4>

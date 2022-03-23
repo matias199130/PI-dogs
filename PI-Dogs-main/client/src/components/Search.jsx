@@ -13,15 +13,17 @@ export default function Search() {
 
   function handleInputChange(el) {
     el.preventDefault();
+    console.log(el.target.value)
     setName(el.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (name.length > 1 && name.length === e.preventDefault()) {
+    console.log(e.preventDefault())
+    if (name.length >= 5 ) {
       dispatch(getName(name));
     } else {
-      alert("perro no encontrado")
+      alert("por favor ingrese un nombre correcto")
       dispatch(getDogs())
   }
 }
@@ -36,11 +38,12 @@ export default function Search() {
           className="buscador"
         />
         <button
+         
           className="figurabuscador"
           onClick={(e) => handleSubmit(e)}
-          type="submit"
+          type="submit" 
         >
-          Search
+         <strong>Search</strong>
         </button>
         {/* <div className="figurabuscador">🔎</div> */}
       </div>

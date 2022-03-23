@@ -1,4 +1,6 @@
 export function validation(input) {
+  // const regexUrl =
+  // /(http[s]*:\/\/)([a-z\-_0-9/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_/._~:?#[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
   let errors = {};
 
   if (!input.name) {
@@ -46,6 +48,13 @@ export function validation(input) {
   } else if (parseInt(input.maxlife_span) < parseInt(input.minlife_span)) {
     errors.maxlife_span =
       "The maximum years cannot be minor than the minimum years";
+  }
+  if (!input.image) {
+    errors.image ="ingrese un url valido"
+  }else if (!input.image.search(/(http[s]*:\/\/)([a-z\-_0-9/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_/._~:?#[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/)){
+    errors.image = "No numbers or symbols are allowed in the name";
+   
+    // errors.URL = "Only jpg, jpeg, and png urls are allowed";
   }
 
 
