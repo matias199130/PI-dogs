@@ -18,7 +18,7 @@ export default function Search() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (name.length > 1 ) {
+    if (name.length > 1 && name.length === e.preventDefault()) {
       dispatch(getName(name));
     } else {
       alert("perro no encontrado")

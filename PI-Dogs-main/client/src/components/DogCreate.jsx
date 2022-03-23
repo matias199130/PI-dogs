@@ -203,7 +203,7 @@ export default function DogCreate() {
                   {[" "]}
                   Temperament:{[" "]}
                 </label>
-                <select
+                <select 
                   className="boton5"
                   onChange={(el) => handleSelectTemperament(el)}
                 >
@@ -221,8 +221,8 @@ export default function DogCreate() {
 
                 {input.temperament.map((nombre, i) => {
                   return (
-                    <div className="concatFiltro">
-                      <span key={i}>
+                    <div className="concatFiltro" key={nombre}>
+                      <span key={nombre}>
                         <button
                           className="boton3"
                           onClick={(nombre) => handleDelete(nombre)}

@@ -35,7 +35,7 @@ export default function Home() {
           ) : (
             currentDogs.map((el, i) => {
               return (
-                <div>
+                <div key={i}>
                   <Link
                     key={i}
                     to={"/dogs/" + el.id}
