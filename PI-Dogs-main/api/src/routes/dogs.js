@@ -54,7 +54,7 @@ const getBd = async () => {
     ],
     include: {
       model: Temperament,
-      as: "Temperaments",
+      as: "temperament",
       attributes: ["name"],
       through: {
         attributes: [],
@@ -65,8 +65,8 @@ const getBd = async () => {
   let mapBd = getDogsTemp.map((el) => el.dataValues);
   // console.log("mapBd", mapBd);
   mapBd = mapBd.map((el) => {
-    let arrTemp = el.Temperaments.map(el=> el.name)
-    // console.log(arrTemp)
+    let arrTemp = el.temperament.map((el) => el.name);
+    // console.log("soy arrTemp", arrTemp);
     return {
       id: el.id,
       name: el.name,
@@ -75,13 +75,9 @@ const getBd = async () => {
       life_span: el.life_span,
       image: el.image,
       createdInBd: el.createdInBd,
-      temperament: arrTemp.join(", ")
-    }
+      temperament: arrTemp.join(", "),
+    };
   });
-  // const newDogs = getDogsTemp.map((el) => el.toJSON());
-  // newDogs.forEach(
-  //   (el) => el.Temperaments === el.Temperaments.map((el) => el.name).join(", ")
-  // );
   return mapBd;
 };
 
