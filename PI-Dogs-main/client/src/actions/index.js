@@ -26,6 +26,7 @@ export function getTemperaments(){
 export function getName(name){
     return async function (dispatch){
 
+        console.log("soy json")
         const json = await axios.get('http://localhost:3001/dogs?name='+ name);
         return dispatch({
             type:"GET_NAME",

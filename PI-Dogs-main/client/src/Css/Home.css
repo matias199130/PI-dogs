@@ -85,3 +85,31 @@
   /* justify-content: end; */
   margin-right: 8%;
 }
+
+.errorBack{
+  background-image: url(../img/fondeo_de_home.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  justify-content: center;
+  /* margin :100%; */
+  /* padding: 20px */
+  /* width: 100%; */
+  /* margin-top:700px; */
+}
+
+.h1{
+  /* width: 100%;
+  height: 100%; */
+  text-align:justify;
+  /* height: 100%; */
+  margin-top: 830px;
+  /* padding: 80px; */
+}
+
+.imagenError{
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}

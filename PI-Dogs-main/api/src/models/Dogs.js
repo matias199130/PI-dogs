@@ -8,8 +8,8 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      primaryKey: true
-        },
+      primaryKey: true,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -32,8 +32,8 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING,
       defaultValue:
-      "https://drive.google.com/file/d/1me3a-ECgQQle1SesLGZUgpR2e3J2su_b/preview",
-    allowNull: true,
+        "https://drive.google.com/file/d/1me3a-ECgQQle1SesLGZUgpR2e3J2su_b/preview",
+      allowNull: true,
     },
     // temperament:{
     //   type: DataTypes.STRING,

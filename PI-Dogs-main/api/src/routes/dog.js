@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const { Dogs, Temperament } = require("../db");
 
-
 const router = Router();
 
 // POST /dog:
@@ -20,14 +19,14 @@ router.post("/", async (req, res) => {
     // temperament: temperament,
   });
 
-  for( const el of temperament) {
-  const searchTemp = await Temperament.findAll({
-    where: {
-      name: el
-       }
-  })
-  createDog.addTemperament(searchTemp)
-}
+  for (const el of temperament) {
+    const searchTemp = await Temperament.findAll({
+      where: {
+        name: el,
+      },
+    });
+    createDog.addTemperament(searchTemp);
+  }
   // console.log("soy createDog:",createDog,"soy searchTemp:", searchTemp)
   res.status(200).send("perro fue creado con exito");
 });

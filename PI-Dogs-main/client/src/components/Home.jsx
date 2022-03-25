@@ -24,44 +24,73 @@ export default function Home() {
   useEffect(() => {
     setCurrentPage(1);
   }, [dispatch]);
+  // console.log("dogs", dogs)
 
+  function handleClick(e) {
+    e.preventDefault();
+    dispatch(mostrarCards);
+    console.log(mostrarCards)
+  }
   const mostrarCards = (dogs) => {
-    const currentDogs = dogs.slice(indexOfFirstDogs, indexOfLastDogs);
-    return (
-      <div className="fondo">
-        <div className="paginado2">
-          {currentDogs.length === 0 && currentDogs ? (
-            <Landing />
-          ) : (
-            currentDogs.map((el, i) => {
-              return (
-                <div key={i}>
-                  <Link
-                    key={i}
-                    to={"/dogs/" + el.id}
-                    style={{ textDecoration: "inherit" }}
-                  >
-                    <Card
-                      key={i.id}
-                      name={el.name}
-                      image={el.image}
-                      temperament={el.temperament}
-                      weight={el.weight}
-                    />
-                  </Link>
-                </div>
-              );
-            })
-          )}
-        </div>
+    if (Array.isArray(dogs)) {
+      const currentDogs = dogs.slice(indexOfFirstDogs, indexOfLastDogs);
+      //  console.log(mostrarCards)
+      return (
+        <div className="fondo">
+          <div className="paginado2">
+            {currentDogs.length === 0 && currentDogs ? (
+              <Landing />
+            ) : (
+              currentDogs.map((el, i) => {
+                return (
+                  <div key={i}>
+                    <Link
+                      key={i}
+                      to={"/dogs/" + el.id}
+                      style={{ textDecoration: "inherit" }}
+                    >
+                      <Card
+                        key={i.id}
+                        name={el.name}
+                        image={el.image}
+                        temperament={el.temperament}
+                        weight={el.weight}
+                      />
+                    </Link>
+                  </div>
+                );
+              })
+            )}
+          </div>
 
-        <Paginado
-          dogsPage={dogsPage}
-          allDogs={dogs.length}
-          paginado={paginado}
-        />
-      </div>
-    );
+          <Paginado
+            dogsPage={dogsPage}
+            allDogs={dogs.length}
+            paginado={paginado}
+          />
+        </div>
+      );
+    } else {
+      // console.log("soy dogs", dogs)
+      return (
+        <div className="errorBack">
+          <h1 className="h1">{dogs}</h1>
+          <img className="imagenError" src= "https://dam.ngenespanol.com/wp-content/uploads/2019/10/perros-personalidad-2-770x395.jpg" alt= "foto perro"/>
+          <button
+        className="refreshButton"
+        onClick={(e) => {
+          handleClick(e);
+        }}
+      >
+        Refresh
+      </button>
+          {/* <button className="button">
+            <span>START </span>
+          </button> */}
+     
+        </div>
+      );
+    }
   };
 
   return (

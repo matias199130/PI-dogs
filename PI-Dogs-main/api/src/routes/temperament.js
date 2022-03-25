@@ -18,10 +18,10 @@ router.get("/", async (req, res) => {
     .map((el) => el.temperament)
     .toString()
     .trim()
-     .split(/\s*,\s*/);
-    //  busca 0 o más espacios seguidos de un punto y coma seguido por 0
-    // o más espacios y, cuando los halla, elimina los espacios de la cadena.
-    // listaNombres es el array devuelto como resultado de la llamada a split.
+    .split(/\s*,\s*/);
+  //  busca 0 o más espacios seguidos de un punto y coma seguido por 0
+  // o más espacios y, cuando los halla, elimina los espacios de la cadena.
+  // listaNombres es el array devuelto como resultado de la llamada a split.
 
   const filterBd = tempBd.filter((el) => el);
   const allFilter = [...new Set(filterBd)];
@@ -31,7 +31,7 @@ router.get("/", async (req, res) => {
     })
   );
   let allTemperaments = await Temperament.findAll();
-  allTemperaments = allTemperaments.map((el) => el.name)
+  allTemperaments = allTemperaments.map((el) => el.name);
   res.json(allTemperaments);
 });
 

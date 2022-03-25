@@ -10,19 +10,22 @@ export default function Search() {
   useEffect(() => {
     dispatch(getDogs());
   }, [dispatch]);
-
+  
   function handleInputChange(el) {
+    console.log(getDogs(name))
     el.preventDefault();
-    console.log(el.target.value)
     setName(el.target.value);
   }
+  function handleSubmit(el) {
+    el.preventDefault();
+    // console.log(el.preventDefault())
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(e.preventDefault())
     if (name.length >= 5 ) {
+      console.log("hola")
       dispatch(getName(name));
+      console.log(getName)
     } else {
+      console.log("adios!")
       alert("por favor ingrese un nombre correcto")
       dispatch(getDogs())
   }
@@ -41,11 +44,10 @@ export default function Search() {
          
           className="figurabuscador"
           onClick={(e) => handleSubmit(e)}
-          type="submit" 
+          type="submit"
         >
          <strong>Search</strong>
         </button>
-        {/* <div className="figurabuscador">🔎</div> */}
       </div>
     </div>
   );
