@@ -34,14 +34,7 @@ export default function DogCreate() {
     el.preventDefault();
     if (Object.values(errors).length > 0||input.name===''){
       return alert("Something went wrong. Please try again.");
-    }else if (
-      !errors.name  &&
-      !errors.image &&
-      !errors.weight_min &&
-      !errors.height_min &&
-      !errors.weight_max &&
-      !errors.height_max
-    ) {
+    }else{
       let crear = {
         name: input.name,
         height: `${input.minHeight} - ${input.maxHeight}`,
@@ -113,7 +106,6 @@ export default function DogCreate() {
           </div>
           <div className="">
             <form className="fromPerfil" onSubmit={resState}>
-              {/* {submit} */}
               <div className="">
                 <label className="title5">Name:</label>
                 <input

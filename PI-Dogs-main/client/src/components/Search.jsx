@@ -12,7 +12,7 @@ export default function Search() {
   }, [dispatch]);
   
   function handleInputChange(el) {
-    console.log(getDogs(name))
+    // console.log(getDogs(name))
     el.preventDefault();
     setName(el.target.value);
   }
@@ -21,11 +21,11 @@ export default function Search() {
     // console.log(el.preventDefault())
 
     if (name.length >= 5 ) {
-      console.log("hola")
+      // console.log("hola")
       dispatch(getName(name));
-      console.log(getName)
+      // console.log(getName)
     } else {
-      console.log("adios!")
+      // console.log("adios!")
       alert("por favor ingrese un nombre correcto")
       dispatch(getDogs())
   }

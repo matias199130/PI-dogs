@@ -5,6 +5,7 @@ const inicialState = {
   allDogs: [],
 };
 
+
 function rootReducer(state = inicialState, action) {
   switch (action.type) {
     case "GET_DOGS":
@@ -80,31 +81,31 @@ function rootReducer(state = inicialState, action) {
           ),
         };
       }
-
-    case "SORT_WEIGHT":
-      if (action.payload === "All") {
-        return {
-          ...state,
-          allDogs: [...state.allDogs],
-          dogs: [...state.dogs],
-        };
-      }
-      if (action.payload === "small") {
-        return {
-          ...state,
-
-          allDogs: [...state.allDogs].sort((a, b) => {
-            let pesoA = parseInt(a.weight.split("-")[0]);
+      
+      case "SORT_WEIGHT":
+        if (action.payload === "All") {
+          return {
+            ...state,
+            allDogs: [...state.allDogs],
+            dogs: [...state.dogs],
+          };
+        }
+        if (action.payload === "small") {
+          return {
+            ...state,
+            
+            allDogs: [...state.allDogs].sort((a, b) => {
+              let pesoA = parseInt(a.weight.split("-")[0]);
+              let pesoB = parseInt(b.weight.split("-")[0]);
+              
+              if (pesoA > pesoB) return 1;
+              if (pesoA < pesoB) return -1;
+              else return 0;
+            }),
+            dogs: [...state.dogs].sort((a, b) => {
+              let pesoA = parseInt(a.weight.split("-")[0]);
             let pesoB = parseInt(b.weight.split("-")[0]);
-
-            if (pesoA > pesoB) return 1;
-            if (pesoA < pesoB) return -1;
-            else return 0;
-          }),
-          dogs: [...state.dogs].sort((a, b) => {
-            let pesoA = parseInt(a.weight.split("-")[0]);
-            let pesoB = parseInt(b.weight.split("-")[0]);
-
+            
             if (pesoA > pesoB) return 1;
             if (pesoA < pesoB) return -1;
             else return 0;
@@ -125,7 +126,7 @@ function rootReducer(state = inicialState, action) {
           dogs: [...state.dogs].sort((a, b) => {
             let pesoA = parseInt(a.weight.split("-")[0]);
             let pesoB = parseInt(b.weight.split("-")[0]);
-
+            
             if (pesoA < pesoB) return 1;
             if (pesoA > pesoB) return -1;
             else return 0;
@@ -133,15 +134,16 @@ function rootReducer(state = inicialState, action) {
         };
       }
       break;
-    case "RES_STATE":
-      return {
-        ...state,
+      case "RES_STATE":
+        return {
+          ...state,
         detail: [],
       };
-
-    default:
-      return state;
-  }
-}
-
-export default rootReducer;
+      
+      default:
+        return state;
+      }
+    }
+    
+    export default rootReducer;
+    

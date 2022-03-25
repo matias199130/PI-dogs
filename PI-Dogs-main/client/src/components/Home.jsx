@@ -26,11 +26,11 @@ export default function Home() {
   }, [dispatch]);
   // console.log("dogs", dogs)
 
-  function handleClick(e) {
-    e.preventDefault();
-    dispatch(mostrarCards);
-    console.log(mostrarCards)
-  }
+  // function handleClick(e) {
+  //   e.preventDefault();
+  //   dispatch(mostrarCards);
+  //   console.log(mostrarCards)
+  // }
   const mostrarCards = (dogs) => {
     if (Array.isArray(dogs)) {
       const currentDogs = dogs.slice(indexOfFirstDogs, indexOfLastDogs);
@@ -76,14 +76,14 @@ export default function Home() {
         <div className="errorBack">
           <h1 className="h1">{dogs}</h1>
           <img className="imagenError" src= "https://dam.ngenespanol.com/wp-content/uploads/2019/10/perros-personalidad-2-770x395.jpg" alt= "foto perro"/>
-          <button
+          {/* <button
         className="refreshButton"
         onClick={(e) => {
           handleClick(e);
         }}
       >
         Refresh
-      </button>
+      </button> */}
           {/* <button className="button">
             <span>START </span>
           </button> */}
