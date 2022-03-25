@@ -52,7 +52,7 @@ export function validation(input) {
   if (!input.image) {
     errors.image ="ingrese un url valido"
   }else if (!input.image.search(/(http[s]*:\/\/)([a-z\-_0-9/.]+)\\.([a-z.]{2,3})\/([a-z0-9\-_\\/._~:?#\\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/)){
-    errors.image = "No numbers or symbols are allowed in the name";
+    errors.image = "Only jpg, jpeg, and png urls are allowed";
    
     // errors.URL = "Only jpg, jpeg, and png urls are allowed";
   }
