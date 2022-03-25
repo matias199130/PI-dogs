@@ -110,7 +110,7 @@ router.get("/", async (req, res) => {
     });
     breedsFilter.length
       ? res.status(200).json(breedsFilter)
-      : res.send("La raza que intenta buscar no fue encontrada!");
+      : res.send("La raza que intenta buscar no fue encontrada, por favor recargue la pagina para continuar");
   }
 });
 
