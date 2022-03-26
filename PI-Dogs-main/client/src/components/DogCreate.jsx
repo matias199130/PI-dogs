@@ -31,7 +31,7 @@ export default function DogCreate() {
 
   function handleSubmit(el) {
     el.preventDefault();
-    if (Object.values(errors).length > 0 || input.name === "") {
+    if (Object.values(errors).length > 0 || input.name === "" || input.temperament.length === 0) {
       return alert("Something went wrong. Please try again.");
     } else {
       let crear = {
@@ -195,6 +195,8 @@ export default function DogCreate() {
                   {[" "]}
                   Temperament:{[" "]}
                 </label>
+                     {/* <br />
+                      <strong>{errors.temeprament}</strong> */}
                 <select
                   className="boton5"
                   onChange={(el) => handleSelectTemperament(el)}

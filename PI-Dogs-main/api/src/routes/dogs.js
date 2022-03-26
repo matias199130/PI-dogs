@@ -75,7 +75,7 @@ const getBd = async () => {
       life_span: el.life_span,
       image: el.image,
       createdInBd: el.createdInBd,
-      temperament: arrTemp.join(", "),
+      temperament: arrTemp.sort((a,b)=> a-b).join(", "),
     };
   });
   return mapBd;

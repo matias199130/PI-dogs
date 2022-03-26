@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
-  // defino el modelo
+  // modelo de perros
   sequelize.define("dogs", {
     id: {
       type: DataTypes.UUID,
@@ -31,14 +31,9 @@ module.exports = (sequelize) => {
 
     image: {
       type: DataTypes.STRING,
-      defaultValue:
-        "https://drive.google.com/file/d/1me3a-ECgQQle1SesLGZUgpR2e3J2su_b/preview",
       allowNull: true,
     },
-    // temperament:{
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    // },
+
     createdInBd: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,

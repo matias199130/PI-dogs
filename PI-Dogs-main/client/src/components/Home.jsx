@@ -82,11 +82,6 @@ export default function Home() {
           <h1 className="h1">{dogs}</h1>
           <img className="imagenError" src= "https://dam.ngenespanol.com/wp-content/uploads/2019/10/perros-personalidad-2-770x395.jpg" alt= "foto perro"/>
           <div className="paginado">
-        {/* <Link to="/">
-          <button className="boton4" >
-           Reload
-          </button>
-        </Link> */}
         <button className="boton4" onClick={refreshPage}>Click to reload!</button>
       </div>
         </div>

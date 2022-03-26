@@ -56,6 +56,9 @@ export function validation(input) {
    
     // errors.URL = "Only jpg, jpeg, and png urls are allowed";
   }
+  if(!input.temperament){
+    errors.temperament ="ingrese algun temperamento para su perro!"
+  }
 
 
   return errors;
