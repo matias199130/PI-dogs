@@ -16,7 +16,6 @@ router.post("/", async (req, res) => {
     weight: weight,
     life_span: life_span,
     image: image,
-    // temperament: temperament,
   });
 
   for (const el of temperament) {

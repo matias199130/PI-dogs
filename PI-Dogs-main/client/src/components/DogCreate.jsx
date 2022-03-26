@@ -9,7 +9,7 @@ import { validation } from "./Errores";
 export default function DogCreate() {
   const dispatch = useDispatch();
   const allTemperaments = useSelector((state) => state.temperament);
-// console.log("soy AllTemperament", allTemperaments)
+  // console.log("soy AllTemperament", allTemperaments)
   const [input, setInput] = useState({
     name: "",
     minHeight: "",
@@ -18,7 +18,7 @@ export default function DogCreate() {
     maxWeight: "",
     minlife_span: "",
     maxlife_span: "",
-    image: "" ,
+    image: "",
     temperament: [],
     createdInBd: false,
   });
@@ -30,11 +30,10 @@ export default function DogCreate() {
   }, [dispatch]);
 
   function handleSubmit(el) {
-    
     el.preventDefault();
-    if (Object.values(errors).length > 0||input.name===''){
+    if (Object.values(errors).length > 0 || input.name === "") {
       return alert("Something went wrong. Please try again.");
-    }else{
+    } else {
       let crear = {
         name: input.name,
         height: `${input.minHeight} - ${input.maxHeight}`,
@@ -73,9 +72,8 @@ export default function DogCreate() {
   }
 
   function handleSelectTemperament(el) {
-  // console.log("soy input", el.target.value)
+    // console.log("soy input", el.target.value)
     if (!input.temperament.includes(el.target.value)) {
-
       setInput({
         ...input,
         temperament: [...input.temperament, el.target.value],
@@ -90,9 +88,9 @@ export default function DogCreate() {
       ...input,
       temperament: input.temperament.filter(
         (temp) => temp !== el.target.innerText
-        ),
-      });
-      console.log("innerText", el.target.innerText)
+      ),
+    });
+    // console.log("innerText", el.target.innerText)
   }
   return (
     <div className="imgFondo">
@@ -197,7 +195,7 @@ export default function DogCreate() {
                   {[" "]}
                   Temperament:{[" "]}
                 </label>
-                <select 
+                <select
                   className="boton5"
                   onChange={(el) => handleSelectTemperament(el)}
                 >
@@ -209,7 +207,7 @@ export default function DogCreate() {
                         {el}
                       </option>
                     ))}
-                    {/* no tocar ! */}
+                  {/* no tocar ! */}
                 </select>
                 <br />
 

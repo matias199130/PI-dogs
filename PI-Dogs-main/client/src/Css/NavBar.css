@@ -16,7 +16,6 @@
   font-family: "Lucida Console", "Courier New", monospace;
   cursor: pointer;
   font-size: 18px;
-  /* justify-content: center; */
   background-color: #00a738;
   border-color: #00a738;
   border-style: outset;
@@ -27,10 +26,7 @@
   height: 40px;
 
 }
-/* .botonfiltro:hover {
-  background-color: #0a0e0b;
 
-} */
 .filtros {
   display: flex;
   justify-content: space-evenly;

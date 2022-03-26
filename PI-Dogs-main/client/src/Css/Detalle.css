@@ -46,3 +46,30 @@
     background-color: #036b2b;
 
 }
+
+.errorBack1{
+    margin: 0;
+    padding: 0;
+    /* background-image: url(../img/fondeo_de_home.jpg); */
+    background-position: center center;
+    background-size: cover;
+    font-size: 10px;
+    text-align: center;
+  }
+  
+  .h11{
+    text-align:center;
+    display:flex;
+    margin-top: 50px;
+    margin-inline-end: 3%;
+    padding-top: 200px;
+    justify-content: center;
+    font-size: 50px;
+  }
+  
+  .imagenError1{
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:contain;
+  }

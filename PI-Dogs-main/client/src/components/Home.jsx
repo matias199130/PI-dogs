@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { resState } from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -21,7 +22,9 @@ export default function Home() {
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+ 
   useEffect(() => {
+    dispatch(resState(resState));
     setCurrentPage(1);
   }, [dispatch]);
   // console.log("dogs", dogs)
@@ -71,26 +74,25 @@ export default function Home() {
         </div>
       );
     } else {
-      // console.log("soy dogs", dogs)
-      return (
+      function refreshPage() {
+        window.location.reload(false);
+      }
+        return (
         <div className="errorBack">
           <h1 className="h1">{dogs}</h1>
           <img className="imagenError" src= "https://dam.ngenespanol.com/wp-content/uploads/2019/10/perros-personalidad-2-770x395.jpg" alt= "foto perro"/>
-          {/* <button
-        className="refreshButton"
-        onClick={(e) => {
-          handleClick(e);
-        }}
-      >
-        Refresh
-      </button> */}
-          {/* <button className="button">
-            <span>START </span>
-          </button> */}
-     
+          <div className="paginado">
+        {/* <Link to="/">
+          <button className="boton4" >
+           Reload
+          </button>
+        </Link> */}
+        <button className="boton4" onClick={refreshPage}>Click to reload!</button>
+      </div>
         </div>
       );
     }
+  
   };
 
   return (

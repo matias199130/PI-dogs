@@ -110,7 +110,7 @@ router.get("/", async (req, res) => {
     });
     breedsFilter.length
       ? res.status(200).json(breedsFilter)
-      : res.send("La raza que intenta buscar no fue encontrada, por favor recargue la pagina para continuar");
+      : res.send("La raza que intenta buscar no fue encontrada");
   }
 });
 
@@ -126,9 +126,7 @@ router.get("/:id", async (req, res) => {
     const idFilter = await breeds.filter((el) => el.id == id);
     idFilter.length
       ? res.status(200).json(idFilter)
-      : res
-          .status(404)
-          .send("El id de la raza que intenta buscar no se encuentra!");
+      : res.send("El id de la raza que intenta buscar no se encuentra!");
   }
 });
 

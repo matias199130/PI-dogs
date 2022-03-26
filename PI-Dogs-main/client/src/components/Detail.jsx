@@ -12,13 +12,19 @@ export default function Detail() {
   const dogDetail = useSelector((el) => el.detail);
   // console.log(dogDetail);
   const dispatch = useDispatch();
+  // console.log(dogDetail)
 
   useEffect(() => {
     dispatch(getDetail(id));
     dispatch(resState(resState));
   }, [dispatch, id]);
+  
+  
+  if (Array.isArray(dogDetail)) {
+  
+    return (
 
-  return (
+
     <div className="fondoDetalle">
       <div className="paginado">
         <Link to="/home">
@@ -64,5 +70,19 @@ export default function Detail() {
         <Landing />
       )}
     </div>
-  );
+    )}else{
+      return(
+        <div className="errorBack1">
+          <div className="paginado">
+        <Link to="/home">
+          <button className="boton4" onClick={resState}>
+            Home
+          </button>
+        </Link>
+      </div>
+          <h1 className="h11">{dogDetail}</h1>
+          <img className="imagenError1" src= "https://dam.ngenespanol.com/wp-content/uploads/2019/10/perros-personalidad-2-770x395.jpg" alt= "foto perro"/>
+        </div>
+      )
+}
 }
