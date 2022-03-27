@@ -9,7 +9,6 @@ import { validation } from "./Errores";
 export default function DogCreate() {
   const dispatch = useDispatch();
   const allTemperaments = useSelector((state) => state.temperament);
-  // console.log("soy AllTemperament", allTemperaments)
   const [input, setInput] = useState({
     name: "",
     minHeight: "",
@@ -76,15 +75,15 @@ export default function DogCreate() {
   }
 
   function handleSelectTemperament(el) {
-    // console.log("soy input", el.target.value)
-    if (!input.temperament.includes(el.target.value)) {
+    
+    if (!input.temperament.includes(el.target.value) && (input.temperament.length < 10)  ) {
       setInput({
         ...input,
         temperament: [...input.temperament, el.target.value],
       });
-      // console.log("rompe", input.temperament )
+    }else{
+      alert("solo te permite un numero limitado de temperamentos!")
     }
-    // console.log(handleSelectTemperament())
   }
   function handleDelete(el) {
     el.preventDefault();
@@ -94,7 +93,6 @@ export default function DogCreate() {
         (temp) => temp !== el.target.innerText
       ),
     });
-    // console.log("innerText", el.target.innerText)
   }
   return (
     <div className="imgFondo">
@@ -183,13 +181,14 @@ export default function DogCreate() {
                   Image:
                 </label>
                 <input
+                  type="url"
                   name="image"
                   value={input.image}
                   placeholder="URL"
                   onChange={(el) => handelChange(el)}
                 ></input>
                 <br />
-                <strong>{errors.image}</strong>
+                <strong>{errors.url}</strong>
 
                 <label
                   className="title5"
@@ -199,14 +198,11 @@ export default function DogCreate() {
                   {[" "]}
                   Temperament:{[" "]}
                 </label>
-                {/* <br />
-                      <strong>{errors.temeprament}</strong> */}
                 <select
                   className="boton5"
                   onChange={(el) => handleSelectTemperament(el)}
                 >
                   <option>Temperaments</option>
-                  {/* {console.log("soy alltemp", allTemperaments)} */}
                   {allTemperaments &&
                     allTemperaments.map((el, index) => (
                       <option key={index} value={el}>
