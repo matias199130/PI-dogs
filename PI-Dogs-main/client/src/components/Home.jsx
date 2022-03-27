@@ -27,17 +27,10 @@ export default function Home() {
     dispatch(resState(resState));
     setCurrentPage(1);
   }, [dispatch]);
-  // console.log("dogs", dogs)
-
-  // function handleClick(e) {
-  //   e.preventDefault();
-  //   dispatch(mostrarCards);
-  //   console.log(mostrarCards)
-  // }
+ 
   const mostrarCards = (dogs) => {
     if (Array.isArray(dogs)) {
       const currentDogs = dogs.slice(indexOfFirstDogs, indexOfLastDogs);
-      //  console.log(mostrarCards)
       return (
         <div className="fondo">
           <div className="paginado2">

@@ -23,7 +23,9 @@ export default function NavBar() {
     el.preventDefault();
     dispatch(sortWeight(el.target.value));
   }
-
+  // function refreshPage() {
+  //   window.location.reload(false);
+  // }
   return (
     <div className="fondo1">
       <div>
@@ -31,6 +33,11 @@ export default function NavBar() {
           <button id="botonCreate">Create Dogs</button>
         </Link>
       </div>
+      <div className="errorBack">
+          {/* <div className="paginado">
+        <button className="boton4" onClick={refreshPage}>Click to reload!</button>
+      </div> */}
+        </div>
       <div className="filtros">
         <div>
           <FilterTemperament />

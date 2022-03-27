@@ -1,17 +1,28 @@
 import axios from 'axios';
 
 
+// export function getDogs(){
+//     return async function(dispatch){
+//         //http://localhost:3001
+//         var json = await axios.get('/dogs');
+//         return dispatch({
+//             type:'GET_DOGS',
+//             payload: json.data,
+//         })
+//     }
+// }
+
 export function getDogs(){
-    return async function(dispatch){
-        //http://localhost:3001
-        var json = await axios.get('/dogs');
-        return dispatch({
-            type:'GET_DOGS',
-            payload: json.data,
+    return function(dispatch){
+        return axios.get('/dogs')
+        .then((json)=>{
+            dispatch({
+                type: 'GET_DOGS',
+                payload: json.data
+            })
         })
     }
 }
-
 
 
 export function getTemperaments(){
