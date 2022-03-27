@@ -8,7 +8,7 @@ export default function LandingPage() {
     <div id="justificado">
       <div className="imaLading">
         <video className="video" src={imaLading} autoPlay loop muted />
-        <h1 className="title">Dogs App</h1>
+        <h1 className="title">BIENVENIDOS AL PROYECTO PERSONAL DE BUSQUEDA DE PERROS</h1>
         <Link to="/home">
           <button className="button">
             <span>START </span>
