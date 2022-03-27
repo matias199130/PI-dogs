@@ -127,6 +127,7 @@ router.get("/:id", async (req, res) => {
     idFilter.length
       ? res.status(200).json(idFilter)
       : res.send("El id de la raza que intenta buscar no se encuentra!");
+      console.log(idFilter)
   }
 });
 

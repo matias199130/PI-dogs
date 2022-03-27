@@ -1,9 +1,16 @@
+/* .todo{
+  background-image: url(../img/fondo_de_create.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
 .About {
-    width: 700px;
-    height: 700px;
+    width: 650px;
+    height: 650px;
+    margin-left: 400px;
     border-radius: 10%;
     border: 2px solid #02b386;
-    margin: 70px;
     background-color: #02b386;
     box-shadow: 15px 5px 10px 10px  #0c0c0c;
     text-align: center;
@@ -14,6 +21,10 @@
 }
 
 .title6 {
-  margin-top: 10px;
+  
+  /* margin-left: 100px; */
+  /* margin-top: 100px;
   padding: 100px;
 }
+ */
+
