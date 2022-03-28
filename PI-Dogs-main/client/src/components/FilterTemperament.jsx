@@ -4,12 +4,14 @@ import { getTemperaments, filterTemperament } from "../actions/index";
 
 export default function FilterTempe() {
   const dispatch = useDispatch();
+  
   let allTemperaments = useSelector((el) => el.temperament);
   // allTemperaments.sort()
 
   useEffect(() => {
     dispatch(getTemperaments());
   }, [dispatch]);
+
 
   const handleFilterTemperaments = (el) => {
     dispatch(filterTemperament(el.target.value));

@@ -31,7 +31,7 @@ export default function Home() {
     dispatch(resState(resState));
     setCurrentPage(1);
   }, [dispatch]);
-////////-----//////////
+////////-----//////////escucha el estado global
   useEffect(() =>{
     setBreeds(dogs)
     setCurrentPage(1)
