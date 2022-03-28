@@ -6,8 +6,9 @@ import "../Css/Search.css";
 export default function Search() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+ 
 
-  useEffect(() => {
+    useEffect(() => {
     dispatch(getDogs());
   }, [dispatch]);
 
@@ -15,6 +16,7 @@ export default function Search() {
     el.preventDefault();
     setName(el.target.value);
   }
+ 
   function handleSubmit(el) {
     el.preventDefault();
 

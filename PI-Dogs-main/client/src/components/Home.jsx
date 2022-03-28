@@ -13,31 +13,40 @@ export default function Home() {
   const dispatch = useDispatch();
   const allDogs = useSelector((el) => el.allDogs);
   const dogs = useSelector((el) => el.dogs);
-
   const [currentPage, setCurrentPage] = useState(1);
+  const [breeds, setBreeds] = useState();
   const dogsPage = 8;
   const indexOfLastDogs = currentPage * dogsPage;
   const indexOfFirstDogs = indexOfLastDogs - dogsPage;
 
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
- 
+  
   useEffect(() => {
     dispatch(resState(resState));
     setCurrentPage(1);
   }, [dispatch]);
- 
+////////-----//////////
+  useEffect(() =>{
+    setBreeds(dogs)
+    setCurrentPage(1)
+  },[dogs])
+
+  const currentDogs = breeds?.slice(indexOfFirstDogs, indexOfLastDogs);
   const mostrarCards = (dogs) => {
     if (Array.isArray(dogs)) {
-      const currentDogs = dogs.slice(indexOfFirstDogs, indexOfLastDogs);
       return (
         <div className="fondo">
           <div className="paginado2">
-            {currentDogs.length === 0 && currentDogs ? (
+            {currentDogs?.length === 0 && currentDogs ? (
               <Landing />
             ) : (
-              currentDogs.map((el, i) => {
+              currentDogs?.map((el, i) => {
                 return (
                   <div key={i}>
                     <Link
@@ -67,9 +76,6 @@ export default function Home() {
         </div>
       );
     } else {
-      function refreshPage() {
-        window.location.reload(false);
-      }
         return (
         <div className="errorBack">
           <h1 className="h1">{dogs}</h1>
@@ -89,7 +95,8 @@ export default function Home() {
         <NavBar />
       </div>
       <div className="principal"></div>
-      <div>{dogs.length > 0 ? mostrarCards(dogs) : mostrarCards(allDogs)}</div>
-    </div>
+      <div>{dogs.length > 0 ? mostrarCards(dogs) : mostrarCards(allDogs)}
+      </div>
+     </div>
   );
 }

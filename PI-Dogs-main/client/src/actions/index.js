@@ -13,14 +13,12 @@ import axios from 'axios';
 // }
 
 export function getDogs(){
-    return function(dispatch){
-        return axios.get('/dogs')
-        .then((json)=>{
-            dispatch({
-                type: 'GET_DOGS',
-                payload: json.data
-            })
-        })
+    return async function(dispatch){
+        const json = await axios.get('/dogs');
+        dispatch({
+            type: 'GET_DOGS',
+            payload: json.data
+        });
     }
 }
 

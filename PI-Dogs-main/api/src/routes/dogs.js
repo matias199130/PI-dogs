@@ -28,20 +28,7 @@ const getApi = async () => {
 
 // mapeo desde la bd
 const getBd = async () => {
-  //findAll a dogs guardarlo en una const y
-  //guardar los atributos que se necesitan en dogs y que incluyan
-  //el modelo temperamento renombrando "as" temperamento tambien
-  //hay que cambiarlo en el archivo de db hacer un throw para evitar errores
 
-  //   return await Dogs.findAll({
-  //     include: {
-  //       model: Temperament,
-  //       attributes: ["name"],
-  //       through: {
-  //         attributes: [],
-  //       },
-  //     },
-  //   });
   const getDogsTemp = await Dogs.findAll({
     attributes: [
       "id",

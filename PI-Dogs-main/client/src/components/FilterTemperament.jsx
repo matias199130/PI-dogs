@@ -23,8 +23,7 @@ export default function FilterTempe() {
           onChange={(el) => handleFilterTemperaments(el)}
         >
           <option value="All">all Temperaments</option>
-          {allTemperaments &&
-            allTemperaments.map((el, i) => (
+          {allTemperaments.map((el, i) => (
                       <option key={i} value={el}>
                 {" "}
                 {el}{" "}
