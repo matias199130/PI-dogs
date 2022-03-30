@@ -1,8 +1,8 @@
 const inicialState = {
   dogs: [],
+  allDogs: [],
   temperament: [],
   detail: [],
-  allDogs: [],
 };
 
 

@@ -9,7 +9,7 @@ const router = Router();
 
 router.post("/", async (req, res) => {
   const { name, height, weight, life_span, temperament, image } = req.body;
-
+  //creacion en post
   const createDog = await Dogs.create({
     name: name,
     height: height,
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
     life_span: life_span,
     image: image,
   });
-
+  //recorrido a temperament
   for (const el of temperament) {
     const searchTemp = await Temperament.findAll({
       where: {
@@ -26,7 +26,6 @@ router.post("/", async (req, res) => {
     });
     createDog.addTemperament(searchTemp);
   }
-  // console.log("soy createDog:",createDog,"soy searchTemp:", searchTemp)
   res.status(200).send("perro fue creado con exito");
 });
 

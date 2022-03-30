@@ -1,5 +1,6 @@
 export function validation(input) {
-  const regexUrl =/(http[s]*:\/\/)([a-z\-_0-9/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_/._~:?#[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
+  const regexUrl =
+    /(http[s]*:\/\/)([a-z\-_0-9/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_/._~:?#[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
 
   let errors = {};
 
@@ -7,9 +8,7 @@ export function validation(input) {
     alert((errors.name = "enter the name please"));
   } else if (input.name.search(/^[a-zA-Z\s]*$/)) {
     errors.name = "No numbers or symbols are allowed in the name ";
-    alert(
-      "solo se permiten letras en el nombre, por favor escriba un nombre valido"
-    );
+    alert("solo se permiten letras en el nombre, por favor escriba un nombre valido");
   }
   if (!input.minHeight) {
     errors.minHeight = "enter the minimum height please";
@@ -22,41 +21,35 @@ export function validation(input) {
   if (!input.maxHeight) {
     errors.maxHeight = "enter the miximum height please";
   } else if (parseInt(input.maxHeight) < parseInt(input.minHeight)) {
-    errors.maxHeight =
-      "The miximum height cannot be minor than the minimum height";
+    errors.maxHeight = "The miximum height cannot be minor than the minimum height";
   }
   if (!input.minWeight) {
     errors.minWeight = "enter the minimum Weight please";
   } else if (parseInt(input.minWeight) > parseInt(input.maxWeight)) {
-    errors.minWeight =
-      "The minimum weight cannot be greater than the maximum weight";
+    errors.minWeight = "The minimum weight cannot be greater than the maximum weight";
   }
   if (!input.maxWeight) {
     errors.maxWeight = "enter the miximum Weight please";
   } else if (parseInt(input.maxWeight) < parseInt(input.minWeight)) {
-    errors.maxWeight =
-      "The maximum height cannot be minor than the minimum height";
+    errors.maxWeight = "The maximum height cannot be minor than the minimum height";
   }
   if (!input.minlife_span) {
     errors.minlife_span = "enter the minimum years please";
   } else if (parseInt(input.minlife_span) > parseInt(input.maxlife_span)) {
-    errors.minlife_span =
-      "The minimum years cannot be greater than the maximum years";
+    errors.minlife_span = "The minimum years cannot be greater than the maximum years";
   }
   if (!input.maxlife_span) {
     errors.maxlife_span = "enter the miximum years please";
   } else if (parseInt(input.maxlife_span) < parseInt(input.minlife_span)) {
-    errors.maxlife_span =
-      "The maximum years cannot be minor than the minimum years";
+    errors.maxlife_span = "The maximum years cannot be minor than the minimum years";
   }
   if (!regexUrl.test(input.image)) {
     errors.url = "Only jpg, jpeg, and png urls are allowed";
   }
 
-  if(!input.temperament ){
-    errors.temperament ="ingrese algun temperamento para su perro!"
+  if (!input.temperament) {
+    errors.temperament = "ingrese algun temperamento para su perro!";
   }
-
 
   return errors;
 }

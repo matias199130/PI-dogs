@@ -10,23 +10,17 @@
 }
 .card:hover {
   background-color: #73ffa9;
-  /* text-transform: capitalize; */
-  /* width: 360px;
-  height: 500px; */
+
 }
 
 .title2 {
   color: rgb(247, 247, 247);
-  /* font-family: Georgia, "Times New Roman", Times, serif; */
-  /* background: white; */
-  /* background-image: url(../img/fondeo_de_home.jpg); */
   bottom: 10%;
   top: 20%;
   border-radius: 10%;
 }
 .title3 {
   color: #050505;
-  /* font-family: Georgia, "Times New Roman", Times, serif; */
   bottom: 10%;
   top: 20%;
   border-radius: 10%;
@@ -60,7 +54,6 @@
   border-radius: 10%;
   justify-content: center;
   border-style: outset;
-  /* box-shadow: 0px 0px 10px 4px #050505; */
   border-color: transparent;
   border-width: 7px;
 }

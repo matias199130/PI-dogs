@@ -36,30 +36,23 @@ export default function Home() {
     setBreeds(dogs)
     setCurrentPage(1)
   },[dogs])
-
+//////////////--------------------condiciones/logica para el renderizado de pagina---------///////////////
   const currentDogs = breeds?.slice(indexOfFirstDogs, indexOfLastDogs);
   const mostrarCards = (dogs) => {
     if (Array.isArray(dogs)) {
       return (
         <div className="fondo">
           <div className="paginado2">
-            {currentDogs?.length === 0 && currentDogs ? (
-              <Landing />
-            ) : (
-              currentDogs?.map((el, i) => {
+            {currentDogs?.length === 0 && currentDogs ? (<Landing />)
+            : ( currentDogs?.map((el, i) => {
                 return (
-                  <div key={i}>
-                    <Link
-                      key={i}
-                      to={"/dogs/" + el.id}
-                      style={{ textDecoration: "inherit" }}
-                    >
+                  <div key={i}><Link key={i} to={"/dogs/" + el.id} style={{ textDecoration: "inherit" }}>
                       <Card
-                        key={i.id}
-                        name={el.name}
-                        image={el.image}
-                        temperament={el.temperament}
-                        weight={el.weight}
+                      key={i.id}
+                      name={el.name}
+                      image={el.image}
+                      temperament={el.temperament}
+                      weight={el.weight}
                       />
                     </Link>
                   </div>
@@ -88,7 +81,7 @@ export default function Home() {
     }
   
   };
-
+////////////////////-------------renderizacion de home------------///////////////////////
   return (
     <div className="fondoNav">
       <div>

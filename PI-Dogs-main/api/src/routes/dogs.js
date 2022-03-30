@@ -43,9 +43,6 @@ const getBd = async () => {
       model: Temperament,
       as: "temperament",
       attributes: ["name"],
-      through: {
-        attributes: [],
-      },
     },
   });
 
@@ -62,7 +59,7 @@ const getBd = async () => {
       life_span: el.life_span,
       image: el.image,
       createdInBd: el.createdInBd,
-      temperament: arrTemp.sort((a,b)=> a-b).join(", "),
+      temperament: arrTemp.join(", "),
     };
   });
   return mapBd;
@@ -114,7 +111,6 @@ router.get("/:id", async (req, res) => {
     idFilter.length
       ? res.status(200).json(idFilter)
       : res.send("El id de la raza que intenta buscar no se encuentra!");
-      console.log(idFilter)
   }
 });
 

@@ -2,7 +2,8 @@ const { DataTypes } = require("sequelize");
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
-  // modelo de perros
+  // modelo de perros datos pedidos: id, nombre, altura, vida, imagen,
+  //y agregado por mi consulto si es creado o no en la base de datos
   sequelize.define("dogs", {
     id: {
       type: DataTypes.UUID,

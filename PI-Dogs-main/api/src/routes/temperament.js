@@ -14,17 +14,15 @@ router.get("/", async (req, res) => {
     `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
   );
 
-  const tempBd = tempInfo.data
-    .map((el) => el.temperament)
-    .toString()
-    .trim()
-    .split(/\s*,\s*/);
+  const tempBd = tempInfo.data.map((el) => el.temperament).toString().trim().split(/\s*,\s*/);
   //  busca 0 o más espacios seguidos de un punto y coma seguido por 0
   // o más espacios y, cuando los halla, elimina los espacios de la cadena.
   // listaNombres es el array devuelto como resultado de la llamada a split.
 
   const filterBd = tempBd.filter((el) => el);
+  //almaceno valor unico
   const allFilter = [...new Set(filterBd)];
+  //ejecuta la function
   allFilter.forEach((el) =>
     Temperament.findOrCreate({
       where: { name: el },

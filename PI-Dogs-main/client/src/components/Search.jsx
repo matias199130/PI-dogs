@@ -31,17 +31,8 @@ export default function Search() {
   return (
     <div>
       <div className="search">
-        <input
-          type="text"
-          placeholder="Dog Breed..."
-          onChange={(el) => handleInputChange(el)}
-          className="buscador"
-        />
-        <button
-          className="figurabuscador"
-          onClick={(e) => handleSubmit(e)}
-          type="submit"
-        >
+        <input type="text" placeholder="Dog Breed..." onChange={(el) => handleInputChange(el)} className="buscador"/>
+        <button className="figurabuscador" onClick={(e) => handleSubmit(e)} type="submit">
           <strong>Search</strong>
         </button>
       </div>

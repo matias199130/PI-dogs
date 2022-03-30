@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { getDogs, sortWeight, sortName } from "../actions";
-import "../Css/NavBar.css";
+import FilterExistingBreed from "./FilterExistingBreed";
 import FilterTemperament from "./FilterTemperament";
 import Search from "./Search";
-import FilterExistingBreed from "./FilterExistingBreed";
-import { Link } from "react-router-dom";
+import "../Css/NavBar.css";
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -19,10 +19,12 @@ export default function NavBar() {
     el.preventDefault();
     dispatch(sortName(el.target.value));
   }
+  
   function handleOrderWeitgh(el) {
     el.preventDefault();
     dispatch(sortWeight(el.target.value));
   }
+
   // function refreshPage() {
   //   window.location.reload(false);
   // }
@@ -33,11 +35,7 @@ export default function NavBar() {
           <button id="botonCreate">Create Dogs</button>
         </Link>
       </div>
-      <div className="errorBack">
-          {/* <div className="paginado">
-        <button className="boton4" onClick={refreshPage}>Click to reload!</button>
-      </div> */}
-        </div>
+      
       <div className="filtros">
         <div>
           <FilterTemperament />
@@ -67,6 +65,11 @@ export default function NavBar() {
           </select>
         </div>
       </div>
+      {/* <div className="errorBack1">
+          <div className="paginado1"> */}
+        {/* <button className="botonRecarga" onClick={refreshPage}>Click to reload!</button> */}
+      {/* </div> */}
+        {/* // </div> */}
     </div>
   );
 }
