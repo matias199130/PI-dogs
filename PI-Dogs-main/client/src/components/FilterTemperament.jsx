@@ -22,7 +22,7 @@ export default function FilterTempe() {
       <div>
         <select className="botonfiltro" onChange={(el) => handleFilterTemperaments(el)}>
           <option value="All">all Temperaments</option>
-          {allTemperaments.map((el, i) => (
+          {allTemperaments?.map((el, i) => (
             <option key={i} value={el}>{" "}{el}{" "}</option>
             )
           )

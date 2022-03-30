@@ -10,8 +10,7 @@ export default function Paginado({ dogsPage, allDogs, paginado }) {
   return (
     <div>
       <div className="paginado9">
-        {pageNumber.length > 1 &&
-          pageNumber.map((number, i) => {
+        {pageNumber.length > 1 && pageNumber.map((number, i) => {
             return (
               <ul key={i}> <button className="botonPaginado" onClick={() => paginado(number)}>{number}</button>
               </ul>

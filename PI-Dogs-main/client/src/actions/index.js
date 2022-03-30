@@ -23,22 +23,21 @@ export function getTemperaments(){
     }
 }
 
-export function getName(name){
-    return async function (dispatch){
 
-        // http://localhost:3001
-        const json = await axios.get('/dogs?name='+ name);
-        return dispatch({
-            type:"GET_NAME",
-            payload: json.data,
-        })
-    }
+export function getName(name){
+    return async function (dispatch) {
+        const res = await axios.get(`/dogs?name=${name}`);
+        dispatch({
+            type: 'GET_NAME',
+            payload: res.data,
+        });
+  }
 }
 
  export function getDetail(id){
     return async function(dispatch){
         // http://localhost:3001
-        const json = await axios.get('/dogs/'+id)
+        const json = await axios.get(`/dogs/${id}`)
         return dispatch({
             type:"GET_DETAIL",
             payload: json.data,
@@ -78,7 +77,7 @@ export function sortWeight(payload){
 export function postDogs(payload){
     return async function(){
         // http://localhost:3001
-        const create = await axios.post('/dog',payload);
+        const create = await axios.post('/dog', payload);
         return create;
     }
 }

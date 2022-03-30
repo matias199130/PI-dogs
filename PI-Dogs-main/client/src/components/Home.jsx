@@ -43,8 +43,7 @@ export default function Home() {
       return (
         <div className="fondo">
           <div className="paginado2">
-            {currentDogs?.length === 0 && currentDogs ? (<Landing />)
-            : ( currentDogs?.map((el, i) => {
+            {currentDogs?.length === 0 && currentDogs ? (<Landing />): ( currentDogs?.map((el, i) => {
                 return (
                   <div key={i}><Link key={i} to={"/dogs/" + el.id} style={{ textDecoration: "inherit" }}>
                       <Card
