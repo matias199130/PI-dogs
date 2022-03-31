@@ -15,16 +15,19 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [breeds, setBreeds] = useState();
   const dogsPage = 8;
-  const indexOfLastDogs = currentPage * dogsPage;
-  const indexOfFirstDogs = indexOfLastDogs - dogsPage;
-
+  const indexOfLastDogs = currentPage * dogsPage; //---->multiplica pagina actual por cantidad de perros
+  const indexOfFirstDogs = indexOfLastDogs - dogsPage;//---->la multiplicacion anterior se resta por la cantidad de targetas
+  
 
   function refreshPage() {
     window.location.reload(false);
   }
+
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+
 
   ////////---------------------//////////escucha el estado global
   useEffect(() => {
@@ -53,6 +56,7 @@ const currentDogs = breeds?.slice(indexOfFirstDogs, indexOfLastDogs);
                       weight={el.weight}
                       />
                     </Link>
+                   
                   </div>
                 );
               })
@@ -72,7 +76,7 @@ const currentDogs = breeds?.slice(indexOfFirstDogs, indexOfLastDogs);
           <h1 className="h1">{dogs}</h1>
           <img className="imagenError" src= "https://dam.ngenespanol.com/wp-content/uploads/2019/10/perros-personalidad-2-770x395.jpg" alt= "foto perro"/>
           <div className="paginado">
-        <button className="boton4" onClick={refreshPage}>Click to reload!</button>
+        <button className="boton4" onClick={refreshPage}>volver a home!</button>
       </div>
         </div>
       );
@@ -89,5 +93,6 @@ const currentDogs = breeds?.slice(indexOfFirstDogs, indexOfLastDogs);
       <div>{dogs.length > 0 ? mostrarCards(dogs) : mostrarCards(allDogs)}
       </div>
      </div>
+    
   );
 }

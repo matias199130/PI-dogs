@@ -1,14 +1,26 @@
+
+
+// eslint-disable-next-line react-hooks/rules-of-hooks
+//   const nameBreeds = useSelector((state) => state.dogs)
+// console.log("soy dogs", nameBreeds[0])
+
+
 export function validation(input) {
+  
+  
   const regexUrl =
     /(http[s]*:\/\/)([a-z\-_0-9/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_/._~:?#[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
 
   let errors = {};
 
-  if (!input.name) {
+  if (!input.name ) {
     alert((errors.name = "enter the name please"));
   } else if (input.name.search(/^[a-zA-Z\s]*$/)) {
     errors.name = "No numbers or symbols are allowed in the name ";
     alert("solo se permiten letras en el nombre, por favor escriba un nombre valido");
+  // }else if(nameBreeds === input.name ){
+  //   errors.name = "este nombre ya ah sido creado, intente con otro"
+  //   alert("este nombre ya ah sido creado anteriormente")
   }
   if (!input.minHeight) {
     errors.minHeight = "enter the minimum height please";

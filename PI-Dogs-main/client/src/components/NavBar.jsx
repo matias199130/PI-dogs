@@ -61,8 +61,8 @@ export default function NavBar() {
         <div>
           <select className="botonfiltro" onChange={(el) => handleOrder(el)}>
             <option value="All">Alphabetically</option>
-            <option value="asc"> A a Z </option>
-            <option value="desc"> Z a A </option>
+            <option value="asc"> A - Z </option>
+            <option value="desc"> Z - A </option>
           </select>
         </div>
       </div>

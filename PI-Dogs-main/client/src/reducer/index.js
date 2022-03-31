@@ -179,7 +179,6 @@ function rootReducer(state = inicialState, action) {
           ...state,
         detail: [],
       };
-      
       default:
         return state;
       }

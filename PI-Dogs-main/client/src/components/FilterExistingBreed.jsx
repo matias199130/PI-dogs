@@ -18,9 +18,9 @@ export default function FilterExistingBreed() {
           className="botonfiltro"
           onChange={(el) => handlefilterExistingBreed(el)}
         >
-          <option value="todo">all Existing Breed</option>
-          <option value="db">Existing Breed DB</option>
-          <option value="api">Existing Breed API</option>
+          <option value="todo">all Breed</option>
+          <option value="db">Breed DB</option>
+          <option value="api">Breed API</option>
         </select>
       </div>
     </div>

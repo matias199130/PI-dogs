@@ -10,9 +10,7 @@ import "../Css/Detalle.css";
 export default function Detail() {
   const { id } = useParams();
   const dogDetail = useSelector((el) => el.detail);
-  // console.log(dogDetail);
   const dispatch = useDispatch();
-  // console.log(dogDetail)
 
   useEffect(() => {
     dispatch(getDetail(id));

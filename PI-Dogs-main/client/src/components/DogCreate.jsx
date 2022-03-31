@@ -8,8 +8,13 @@ import { validation } from "./Errores";
 
 //////////////////////////////////////////////////////////////////
 export default function DogCreate() {
+  
   const navigator = useNavigate();
   const dispatch = useDispatch();
+  
+ 
+  const [errors, setErrors] = useState({});
+ 
   const allTemperaments = useSelector((state) => state.temperament);
   const [input, setInput] = useState({
     name: "",
@@ -23,7 +28,6 @@ export default function DogCreate() {
     temperament: [],
     createdInBd: false,
   });
-  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     dispatch(getTemperaments());
@@ -31,9 +35,9 @@ export default function DogCreate() {
   }, [dispatch]);
 
 //////////////////////////////////////////////////////////////////
-
   function handleSubmit(el) {
     el.preventDefault();
+    
     if (Object.values(errors).length > 0 || input.name === "" || input.temperament.length === 0) {
       return alert("You did not enter the required data. please try again!");
     } else {
@@ -44,7 +48,8 @@ export default function DogCreate() {
         life_span: `${input.minlife_span} - ${input.maxlife_span} years`,
         image: input.image,
         temperament: input.temperament,
-      };
+      }
+      
       dispatch(postDogs(crear));
       setInput({
         name: "",
@@ -57,7 +62,8 @@ export default function DogCreate() {
         image: "",
         temperament: [],
       });
-      navigator('/home')
+    
+      navigator('/home');
       alert("breed of dog successfully created");
     }
   }
@@ -117,42 +123,42 @@ export default function DogCreate() {
             <form className="fromPerfil" onSubmit={resState}>
               <div className="">
                 <label className="title5">Name:</label>
-                <input type="text" name="name" value={input.name} onChange={(el) => handelChange(el)}/>
+                <input type="text"  placeholder="Name Breeds" name="name" value={input.name} onChange={(el) => handelChange(el)}/>
                 <br />
                 <strong>{errors.name}</strong>
 
                 <label className="title5">Height min:</label>
-                <input type="number" name="minHeight" value={input.minHeight} onChange={(el) => handelChange(el)}/>
+                <input type="number" placeholder="minHeight" name="minHeight" value={input.minHeight} onChange={(el) => handelChange(el)}/>
                 <br />
                 <strong>{errors.minHeight}</strong>
 
                 <label className="title5">Height max:</label>
-                <input type="number" name="maxHeight" value={input.maxHeight} onChange={(el) => handelChange(el)}/>
+                <input type="number" placeholder="maxHeight" name="maxHeight" value={input.maxHeight} onChange={(el) => handelChange(el)}/>
                 <br />
                 <strong>{errors.maxHeight}</strong>
 
                 <label className="title5">Weight min:</label>
-                <input type="number" name="minWeight" value={input.minWeight} onChange={(el) => handelChange(el)}/>
+                <input type="number" placeholder="minWeight" name="minWeight" value={input.minWeight} onChange={(el) => handelChange(el)}/>
                 <br />
                 <strong>{errors.minWeight}</strong>
 
                 <label className="title5">Weight max:</label>
-                <input type="number" name="maxWeight" value={input.maxWeight} onChange={(el) => handelChange(el)}></input>
+                <input type="number" placeholder="maxWeight" name="maxWeight" value={input.maxWeight} onChange={(el) => handelChange(el)}></input>
                 <br />
                 <strong>{errors.maxWeight}</strong>
 
-                <label className="title5">Life span min:</label>
-                <input type="number" name="minlife_span" value={input.minlife_span} onChange={(el) => handelChange(el)}/>
+                <label className="title5">Average Life min:</label>
+                <input type="number" placeholder="min life" name="minlife_span" value={input.minlife_span} onChange={(el) => handelChange(el)}/>
                 <br />
                 <strong>{errors.minlife_span}</strong>
 
-                <label className="title5">Life span max:</label>
-                <input type="number" name="maxlife_span" value={input.maxlife_span} onChange={(el) => handelChange(el)}/>
+                <label className="title5">Average Life max:</label>
+                <input type="number" placeholder="max life" name="maxlife_span" value={input.maxlife_span} onChange={(el) => handelChange(el)}/>
                 <br />
                 <strong>{errors.maxlife_span}</strong>
 
                 <label name="image" className="title5">Image:</label>
-                <input type="url" name="image" value={input.image} placeholder="URL" onChange={(el) => handelChange(el)}></input>
+                <input type="url"  name="image" value={input.image} placeholder="URL" onChange={(el) => handelChange(el)}></input>
                 <br />
                 <strong>{errors.url}</strong>
 
