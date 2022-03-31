@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTemperaments, resState, postDogs } from "../actions/index";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useEffect } from "react";
 import "../Css/CreateDog.css";
 import { validation } from "./Errores";
 
 //////////////////////////////////////////////////////////////////
-
 export default function DogCreate() {
+  const navigator = useNavigate();
   const dispatch = useDispatch();
   const allTemperaments = useSelector((state) => state.temperament);
   const [input, setInput] = useState({
@@ -57,6 +57,7 @@ export default function DogCreate() {
         image: "",
         temperament: [],
       });
+      navigator('/home')
       alert("breed of dog successfully created");
     }
   }

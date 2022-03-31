@@ -7,10 +7,10 @@ export default function FilterExistingBreed() {
 
   const handlefilterExistingBreed = (el) => {
     el.preventDefault();
+    console.log(el)
     dispatch(filterExistingBreed(el.target.value));
-    // console.log(typeof el.target.value)
   };
-  // if(Array.isArray(handlefilterExistingBreed)){
+
   return (
     <div>
       <div>
@@ -26,6 +26,3 @@ export default function FilterExistingBreed() {
     </div>
   );
 }
-// }else{
-//   alert("error")
-// }}

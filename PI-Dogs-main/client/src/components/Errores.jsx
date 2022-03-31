@@ -13,8 +13,7 @@ export function validation(input) {
   if (!input.minHeight) {
     errors.minHeight = "enter the minimum height please";
   } else if (parseInt(input.minHeight) > parseInt(input.maxHeight)) {
-    errors.minHeight =
-      "The minimum height cannot be greater than the maximum height";
+    errors.minHeight = "The minimum height cannot be greater than the maximum height";
   } else if (input.minHeight < 0) {
     errors.minHeight = "Negative numbers are not allowed ";
   }

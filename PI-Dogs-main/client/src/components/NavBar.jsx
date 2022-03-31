@@ -25,9 +25,9 @@ export default function NavBar() {
     dispatch(sortWeight(el.target.value));
   }
 
-  // function refreshPage() {
-  //   window.location.reload(false);
-  // }
+  function refreshPage() {
+    window.location.reload(false);
+  }
   return (
     <div className="fondo1">
       <div>
@@ -45,6 +45,7 @@ export default function NavBar() {
         </div>
         <div>
           <Search />
+          <button className="botonfiltro" onClick={refreshPage}>refresh</button>
         </div>
         <div>
           <select

@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { resState } from "../actions";
 import { Link } from "react-router-dom";
@@ -26,18 +25,18 @@ export default function Home() {
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  
+
+  ////////---------------------//////////escucha el estado global
   useEffect(() => {
     dispatch(resState(resState));
-    setCurrentPage(1);
-  }, [dispatch]);
-////////-----//////////escucha el estado global
-  useEffect(() =>{
     setBreeds(dogs)
-    setCurrentPage(1)
-  },[dogs])
+    setCurrentPage(1);
+  }, [dispatch, dogs]);
+
 //////////////--------------------condiciones/logica para el renderizado de pagina---------///////////////
-  const currentDogs = breeds?.slice(indexOfFirstDogs, indexOfLastDogs);
+
+
+const currentDogs = breeds?.slice(indexOfFirstDogs, indexOfLastDogs);
   const mostrarCards = (dogs) => {
     if (Array.isArray(dogs)) {
       return (

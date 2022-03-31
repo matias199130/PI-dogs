@@ -3,6 +3,8 @@ const inicialState = {
   allDogs: [],
   temperament: [],
   detail: [],
+  filter: [],
+  filterApi: []
 };
 
 
@@ -46,6 +48,7 @@ function rootReducer(state = inicialState, action) {
       };
 
     case "FILTER_TEMPERAMENT":
+      if(!state.filter[0]){
       const allBreeds = state.allDogs;
       const filterTemperament =
         action.payload === "All"
@@ -62,6 +65,39 @@ function rootReducer(state = inicialState, action) {
         ...state,
         dogs: filterTemperament,
       };
+    }else {
+      if(!state.filterApi[0]){
+        const allFilterBreedsDb = state.filter;
+      const filterTemperamentDb = allFilterBreedsDb.filter((el) => {
+              if (el.temperament) {
+                if (el.temperament.includes(action.payload)) {
+                  return el;
+                }
+              }
+              return false;
+            });
+      return {
+        ...state,
+        dogs: filterTemperamentDb,
+        filter: filterTemperamentDb
+      }
+    }else{
+      const allFilterBreedsApi = state.filterApi;
+      const filterTemperamentApi = allFilterBreedsApi.filter((el) => {
+              if (el.temperament) {
+                if (el.temperament.includes(action.payload)) {
+                  return el;
+                }
+              }
+              return false;
+            });
+      return {
+        ...state,
+        dogs: filterTemperamentApi,
+        filterApi: filterTemperamentApi
+      }
+    }
+  }
     case "FILTER_EXISTING_BREED":
       if (action.payload === "todo") {
         return {
@@ -69,16 +105,20 @@ function rootReducer(state = inicialState, action) {
           dogs: [...state.allDogs],
         };
       } else if (action.payload === "db") {
+        const filtrado = state.allDogs.filter((breed) => breed.createdInBd === true)
+        console.log("esto es filtrado",filtrado)
         return {
           ...state,
-          dogs: state.allDogs.filter((breed) => breed.createdInBd === true),
+          dogs: filtrado,
+          filter: filtrado
         };
       } else {
+        const filtradoApi = state.allDogs.filter((breed) => breed.createdInBd === undefined)
         return {
           ...state,
-          dogs: state.allDogs.filter(
-            (breed) => breed.createdInBd === undefined
-          ),
+          dogs: filtradoApi,
+          filterApi: filtradoApi
+          
         };
       }
       
